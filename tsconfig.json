@@ -2,6 +2,8 @@
     "compilerOptions": {
         "allowSyntheticDefaultImports": true,
         "jsx": "react",
-        "esModuleInterop": true
+        "esModuleInterop": true,
+        "types": ["react", "jest", "node"],
+        "lib": ["es6"]
     }
 }
