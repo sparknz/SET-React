@@ -43,6 +43,6 @@ export const borderColorTop: Colors = createColorGetter('border-top-color: ');
 export const borderColorBottom: Colors = createColorGetter('border-bottom-color: '); 
 
 export default ({ theme = 'purple-orange', ...props }) => {
-    const constructedTheme = merge(tokens.base, tokens.themes[theme]);
+    const constructedTheme = merge(tokens.base, tokens.themes[theme] || {});
     return <ThemeProvider {...props} theme={constructedTheme} />;
 };
