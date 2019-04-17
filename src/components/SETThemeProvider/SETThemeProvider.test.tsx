@@ -15,7 +15,7 @@ import SETThemeProvider, {
 
 console.warn = jest.fn();
 
-test("It renders without crashing", () => {
+test('It renders without crashing', (): void => {
     const component = renderer.create(<SETThemeProvider />);
     let tree = component.toJSON();
     expect(tree).toMatchInlineSnapshot(`null`);
@@ -27,11 +27,11 @@ const TestStyle = styled.div`
     ${borderColor.base.primary.light};
     ${borderColorLeft.base.secondary.light};
     ${borderColorRight.base.secondary.base};
-    ${borderColorTop.base.neutral["000"]};
+    ${borderColorTop.base.neutral['000']};
     ${borderColorBottom.base.tertiary};
 `;
 
-test("it returns all the correct color for all types", () => {
+test('it returns all the correct color for all types', (): void => {
     const component = renderer.create(
         <SETThemeProvider>
             <TestStyle />
@@ -55,7 +55,7 @@ test("it returns all the correct color for all types", () => {
     `);
 });
 
-test("it returns all the correct color for all types with theme change", () => {
+test('it returns all the correct color for all types with theme change', (): void => {
     const component = renderer.create(
         <SETThemeProvider theme="orange-pink">
             <TestStyle />
@@ -79,7 +79,7 @@ test("it returns all the correct color for all types with theme change", () => {
     `);
 });
 
-test("it returns all the correct color for all types with orange-green the index theme", () => {
+test('it returns all the correct color for all types with orange-green the index theme', (): void => {
     const component = renderer.create(
         <SETThemeProvider theme="orange-green">
             <TestStyle />
@@ -107,7 +107,7 @@ const TestBrandColor = styled.div`
     ${backgroundColor.brand.green.base};
 `;
 
-test("Background.brand.green.base returns the correct color and calls a warning", () => {
+test('Background.brand.green.base returns the correct color and calls a warning', () => {
     expect(console.warn).not.toBeCalled();
     const component = renderer.create(
         <SETThemeProvider>
@@ -115,6 +115,6 @@ test("Background.brand.green.base returns the correct color and calls a warning"
         </SETThemeProvider>
     );
     let tree = component.toJSON();
-    expect(tree).toHaveStyleRule("background-color", "#00af55");
+    expect(tree).toHaveStyleRule('background-color', '#00af55');
     expect(console.warn).toBeCalled();
 });

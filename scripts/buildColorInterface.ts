@@ -2,17 +2,17 @@ import tokens from '@sparknz/set-tokens/build/web/tokensWithVariations';
 import fs from 'fs';
 
 const res = {};
-const rec = (thing, otherThing, path) => {
-  Object.keys(thing).forEach((key) => {
-    if (thing[key].value) {
-      otherThing[key] = '123456789';
-    } else {
-      if (!otherThing[key]) {
-        otherThing[key] = {};
-      }
-      rec(thing[key], otherThing[key], `${path}.${key}`);
-    }
-  });
+const rec = (thing, otherThing, path): void => {
+    Object.keys(thing).forEach((key): void => {
+        if (thing[key].value) {
+            otherThing[key] = '123456789';
+        } else {
+            if (!otherThing[key]) {
+                otherThing[key] = {};
+            }
+            rec(thing[key], otherThing[key], `${path}.${key}`);
+        }
+    });
 };
 rec(tokens.base.color, res, '');
 

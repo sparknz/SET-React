@@ -1,10 +1,10 @@
 export { 
-    default, 
-    backgroundColor, 
+    default,
+    backgroundColor,
     textColor,
-    borderColor, 
+    borderColor,
     borderColorLeft,
-    borderColorRight, 
+    borderColorRight,
     borderColorTop,
-    borderColorBottom 
-} from './SETThemeProvider'
+    borderColorBottom,
+} from './SETThemeProvider';
