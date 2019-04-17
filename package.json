@@ -12,7 +12,7 @@
   "scripts": {
     "test": "jest && yarn styleguidest-visual",
     "postinstall": "ts-node scripts/buildColorInterface.ts",
-    "styleguidest-visual": "styleguidist build && styleguidist-visual test --url \"file://$(pwd)/styleguide/index.html\""
+    "styleguidest-visual": "styleguidist build && styleguidist-visual test --url \"file://$(pwd)/styleguide/index.html\" --wait 50"
   },
   "name": "set-react",
   "version": "0.0.1",
@@ -36,10 +36,12 @@
     "eslint-plugin-jsx-a11y": "^6.2.1",
     "eslint-plugin-react": "^7.12.4",
     "jest": "^24.7.1",
+    "jest-runner-eslint": "^0.7.3",
     "jest-styled-components": "^6.3.1",
     "prettier": "1.17.0",
     "react-styleguidist-visual": "^0.8.0",
     "react-test-renderer": "^16.8.6",
+    "singel": "^0.5.4",
     "source-map-loader": "^0.2.4",
     "ts-jest": "^24.0.2",
     "ts-node": "^8.0.3",
