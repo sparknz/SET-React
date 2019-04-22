@@ -5,7 +5,8 @@ const fs = require("fs");
 
 module.exports = {
         components: () => {
-            return glob.sync("src/components/**/index.ts")
+            return glob.sync("src/components/**/[A-Z]*.tsx")
         },
         propsParser: require("react-docgen-typescript").parse,
     }
+
