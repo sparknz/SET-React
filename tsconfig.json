@@ -1,0 +1,9 @@
+{
+    "compilerOptions": {
+        "allowSyntheticDefaultImports": true,
+        "jsx": "react",
+        "esModuleInterop": true,
+        "types": ["react", "jest", "node"],
+        "lib": ["es6", "dom"]
+    }
+}
