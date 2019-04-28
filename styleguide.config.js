@@ -8,5 +8,8 @@ module.exports = {
             return glob.sync("src/components/**/[A-Z]*.tsx")
         },
         propsParser: require("react-docgen-typescript").parse,
+        styleguideComponents: {
+            Wrapper: path.join(__dirname, 'src/styleguide/Wrapper.ts')
+        }
     }
 
