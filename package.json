@@ -12,9 +12,8 @@
     },
     "scripts": {
         "test": "jest && yarn styleguidest-visual",
+        "start": "styleguidist server",
         "postinstall": "ts-node scripts/buildColorInterface.ts",
-        "styleguide": "styleguidist server",
-        "styleguide:build": "styleguidist build",
         "styleguidest-visual": "styleguidist build && styleguidist-visual test --url \"file://$(pwd)/styleguide/index.html\" --wait 50"
     },
     "name": "set-react",
