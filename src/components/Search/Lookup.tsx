@@ -1,4 +1,4 @@
-import React, { useState, MouseEvent, Component } from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 // import Icon from './FontIcons.tsx';
 import { backgroundColor, textColor, borderColor } from '../SETThemeProvider';
@@ -14,18 +14,18 @@ const states = (states) => {
 
 type IconName = string
 
-interface Search {
+interface Lookup {
     placeholder: string,
     buttonText: string;
     iconName: IconName;
     onRequestSearch(input: string): string;
 }
 
-export default function Search(search: Search) {
+export default function Lookup(lookup: Lookup) {
 
     const [input, updateInput] = useState('')
 
-    function handleRequestSearch(input: string, search: Search) {
+    function handleRequestSearch(input: string, search: Lookup) {
         const { onRequestSearch } = search
         if (onRequestSearch) {
             onRequestSearch(input)
@@ -36,12 +36,12 @@ export default function Search(search: Search) {
         placeholder,
         buttonText,
         iconName
-    } = search
+    } = lookup
 
     return (
-        <Wrapper {...search}>
+        <Wrapper {...lookup}>
             <SearchField placeholder={placeholder} onChange={(e) => updateInput(e.target.value)}></SearchField>
-            <SearchButton onClick={() => handleRequestSearch(input, search)}>
+            <SearchButton onClick={() => handleRequestSearch(input, lookup)}>
                 <SearchButtonText>{buttonText}</SearchButtonText>
                 {/* <Icon name={iconName} size={'19px'}></Icon> */}
             </SearchButton>
