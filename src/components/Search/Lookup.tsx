@@ -12,10 +12,10 @@ const states = (states) => {
     }
 }
 
-type IconName = string
+type IconName = string;
 
 interface Lookup {
-    placeholder: string,
+    placeholder: string;
     buttonText: string;
     iconName: IconName;
     onRequestSearch(input: string): string;
@@ -23,7 +23,7 @@ interface Lookup {
 
 export default function Lookup(lookup: Lookup) {
 
-    const [input, updateInput] = useState('')
+    const [input, updateInput] = useState('');
 
     function handleRequestSearch(input: string, search: Lookup) {
         const { onRequestSearch } = search
@@ -36,7 +36,7 @@ export default function Lookup(lookup: Lookup) {
         placeholder,
         buttonText,
         iconName
-    } = lookup
+    } = lookup;
 
     return (
         <Wrapper {...lookup}>
