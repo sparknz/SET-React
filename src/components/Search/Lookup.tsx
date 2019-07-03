@@ -53,7 +53,7 @@ const SearchButton = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #0096e6;
+    ${backgroundColor.interation.base};
     height: 50px;
     border-top-right-radius: 23px;
     border-bottom-right-radius: 23px;
@@ -101,7 +101,7 @@ const SearchField = styled.input`
     width: 100%;
     margin: 0 20px;
     border: none;
-    color: #666666;
+    ${textColor.base.grey[4]};
     font-family: 'AvenirNextLTPro-Medium', Helvetica, Arial, sans-serif;
     ${states(['focus'])} {
         outline: none;
