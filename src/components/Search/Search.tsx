@@ -12,10 +12,12 @@ const states = (states) => {
     }
 }
 
+type IconName = string
+
 interface Search {
     placeholder: string,
     buttonText: string;
-    iconName: string;
+    iconName: IconName;
     onRequestSearch(input: string): string;
 }
 
@@ -24,17 +26,24 @@ export default function Search(search: Search) {
     const [input, updateInput] = useState('')
 
     function handleRequestSearch(input: string, search: Search) {
-        if (search.onRequestSearch) {
-            search.onRequestSearch(input)
+        const { onRequestSearch } = search
+        if (onRequestSearch) {
+            onRequestSearch(input)
         }
     }
 
+    const {
+        placeholder,
+        buttonText,
+        iconName
+    } = search
+
     return (
         <Wrapper {...search}>
-            <SearchField placeholder={search.placeholder} onChange={(e) => updateInput(e.target.value)}></SearchField>
+            <SearchField placeholder={placeholder} onChange={(e) => updateInput(e.target.value)}></SearchField>
             <SearchButton onClick={() => handleRequestSearch(input, search)}>
-                <SearchButtonText>{search.buttonText}</SearchButtonText>
-                {/* <Icon name={search.iconName} size={'19px'}></Icon> */}
+                <SearchButtonText>{buttonText}</SearchButtonText>
+                {/* <Icon name={iconName} size={'19px'}></Icon> */}
             </SearchButton>
         </Wrapper>
     )
@@ -107,7 +116,7 @@ const SearchButtonText = styled.div`
     font-size: 18px;
     padding-right: 8px;
     font-family: 'AvenirNext-Medium', Helvetica, Arial, sans-serif;
-    color: white;
+    ${textColor.base.white};
     @media only screen and (max-width: 639px) {
         display: none;
       }
