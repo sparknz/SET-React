@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, Props } from 'react';
 import styled from 'styled-components';
 // import Icon from './FontIcons.tsx';
 import { backgroundColor, textColor, borderColor } from '../SETThemeProvider';
@@ -14,34 +14,35 @@ const states = (states) => {
 
 type IconName = string;
 
-interface Lookup {
+interface LookupProps {
     placeholder: string;
     buttonText: string;
     iconName: IconName;
-    onRequestSearch(input: string): string;
+    onRequestSearch(value: string): string;
 }
 
-export default function Lookup(lookup: Lookup) {
+export default function Lookup({ placeholder, buttonText, iconName, onRequestSearch }: LookupProps) {
 
-    const [input, updateInput] = useState('');
-
-    function handleRequestSearch(input: string, search: Lookup) {
-        const { onRequestSearch } = search
+    function handleRequestSearch(value: string, onRequestSearch: (value: string) => string) {
         if (onRequestSearch) {
-            onRequestSearch(input)
+            onRequestSearch(value)
         }
     }
 
-    const {
-        placeholder,
-        buttonText,
-        iconName
-    } = lookup;
+    function useControlledInput(initialValue) {
+        const [value, updateValue] = useState(initialValue);
+        return {
+            value,
+            onChange: e => updateValue(e.target.value)
+        }
+    }
+
+    const searchValue = useControlledInput('');
 
     return (
-        <Wrapper {...lookup}>
-            <SearchField placeholder={placeholder} onChange={(e) => updateInput(e.target.value)}></SearchField>
-            <SearchButton onClick={() => handleRequestSearch(input, lookup)}>
+        <Wrapper>
+            <SearchField value={searchValue.value} placeholder={placeholder} {...searchValue}></SearchField>
+            <SearchButton onClick={() => handleRequestSearch(searchValue.value, onRequestSearch)}>
                 <SearchButtonText>{buttonText}</SearchButtonText>
                 {/* <Icon name={iconName} size={'19px'}></Icon> */}
             </SearchButton>
