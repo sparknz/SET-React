@@ -42,8 +42,6 @@ export default function Lookup({ placeholder, buttonText, iconName, onRequestSea
 
     const searchValue = useControlledInput('');
 
-    console.log(props)
-
     return (
         <Wrapper {...props}>
             <SearchField placeholder={placeholder} {...searchValue}></SearchField>
