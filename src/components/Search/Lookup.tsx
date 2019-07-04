@@ -21,34 +21,41 @@ interface LookupProps {
     onRequestSearch(value: string): string;
 }
 
-export default function Lookup({ placeholder, buttonText, iconName, onRequestSearch }: LookupProps) {
 
-    function handleRequestSearch(value: string, onRequestSearch: (value: string) => string) {
+
+function useControlledInput(initialValue) {
+    const [value, updateValue] = useState(initialValue);
+    return {
+        value,
+        onChange: e => updateValue(e.target.value)
+    }
+}
+
+
+export default function Lookup({ placeholder, buttonText, iconName, onRequestSearch, ...props}: LookupProps) {
+
+    function handleRequestSearch(value: string) {
         if (onRequestSearch) {
             onRequestSearch(value)
         }
     }
 
-    function useControlledInput(initialValue) {
-        const [value, updateValue] = useState(initialValue);
-        return {
-            value,
-            onChange: e => updateValue(e.target.value)
-        }
-    }
-
     const searchValue = useControlledInput('');
 
+    console.log(props)
+
     return (
-        <Wrapper>
-            <SearchField value={searchValue.value} placeholder={placeholder} {...searchValue}></SearchField>
-            <SearchButton onClick={() => handleRequestSearch(searchValue.value, onRequestSearch)}>
+        <Wrapper {...props}>
+            <SearchField placeholder={placeholder} {...searchValue}></SearchField>
+            <SearchButton onClick={() => handleRequestSearch(searchValue.value)}>
                 <SearchButtonText>{buttonText}</SearchButtonText>
                 {/* <Icon name={iconName} size={'19px'}></Icon> */}
             </SearchButton>
         </Wrapper>
     )
 }
+
+
 const SearchButton = styled.div`
     display: flex;
     justify-content: center;
