@@ -81,7 +81,8 @@ const Wrapper = styled.div`
     min-width: 320px;
     max-width: 756px;
     border-radius: 25px;
-    border: solid 1px #979797;
+    border: 1px solid;
+    ${borderColor.border.regular};
     ${backgroundColor.base.white};
     @media only screen and (max-width: 639px) {
         max-width: 328px;
