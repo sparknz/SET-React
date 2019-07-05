@@ -1,4 +1,4 @@
-import React, { useState, Props } from 'react';
+import React, { useState, KeyboardEvent } from 'react';
 import styled from 'styled-components';
 // import Icon from './FontIcons.tsx';
 import { backgroundColor, textColor, borderColor } from '../SETThemeProvider';
@@ -40,11 +40,17 @@ export default function Lookup({ placeholder, buttonText, iconName, onRequestSea
         }
     }
 
+    function handleKeyUp(e: KeyboardEvent) {
+        if(e.key === 'Enter') {
+           handleRequestSearch(searchValue.value)
+        } 
+    }
+
     const searchValue = useControlledInput('');
 
     return (
         <Wrapper {...props}>
-            <SearchField placeholder={placeholder} {...searchValue}></SearchField>
+            <SearchField placeholder={placeholder} {...searchValue} onKeyUp={(e) => handleKeyUp(e)}></SearchField>
             <SearchButton onClick={() => handleRequestSearch(searchValue.value)}>
                 <SearchButtonText>{buttonText}</SearchButtonText>
                 {/* <Icon name={iconName} size={'19px'}></Icon> */}
