@@ -54,7 +54,7 @@ export default function Lookup({ placeholder, buttonText, iconName, onRequestSea
 }
 
 
-const SearchButton = styled.div`
+export const SearchButton = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
@@ -71,7 +71,7 @@ const SearchButton = styled.div`
     }
 `;
 
-const Wrapper = styled.div`
+export const Wrapper = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
@@ -101,7 +101,7 @@ const Wrapper = styled.div`
 `;
 
 
-const SearchField = styled.input`
+export const SearchField = styled.input`
     font-size: 22px;
     height: 28px;
     width: 100%;
@@ -118,7 +118,7 @@ const SearchField = styled.input`
     }
 `;
 
-const SearchButtonText = styled.div`
+export const SearchButtonText = styled.div`
     text-align: center;
     font-size: 18px;
     padding-right: 8px;
