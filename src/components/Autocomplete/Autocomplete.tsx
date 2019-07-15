@@ -1,27 +1,92 @@
-import React from 'react';
+import React, { useState } from 'react';
+import Autosuggest from 'react-autosuggest';
 import styled from 'styled-components';
-import {Wrapper, SearchField, SearchButtonText} from '../Lookup/Lookup';
+import { Wrapper, SearchField, SearchButtonText } from '../Lookup/Lookup';
 import { backgroundColor, textColor } from '../SETThemeProvider';
 
 interface AutocompleteProps {
     placeholder: string;
     buttonText: string;
     iconName: string;
+    onRequestSearch(value: string): string;
+    suggestionsList: Array<Suggestions>;
+}
+interface Suggestions {
+    title: string;
 }
 
+const getSuggestions = (value, suggestionsList) => {
+    const inputValue = value.trim().toLowerCase();
+    const inputLength = inputValue.length;
 
-export default function Autocomplete({placeholder, buttonText, iconName, ...props}: AutocompleteProps) {
-    return(
-        <AutocompleteWrapper {...props}>
-                {/* <Icon name={iconName} size={'19px'} marginLeft={'22px'} color={${textColor.base.grey[4]};}></Icon> */}
-                <AutocompleteSearchField placeholder={placeholder}></AutocompleteSearchField>
-            <AutocompleteButton>
-                {/* <Icon name={iconName} size={'19px'}></Icon> */}
+    return inputLength === 0 ? [] : suggestionsList.filter(suggestion =>
+        suggestion.title.toLowerCase().slice(0, inputLength) === inputValue
+    );
+};
+
+const getSuggestionValue = suggestion => suggestion.title;
+
+function renderInputComponent(inputProps) {
+    const {placeholder, buttonText} = inputProps;
+
+    return (
+        <AutocompleteWrapper>
+            <AutocompleteSearchField placeholder={placeholder} {...inputProps}>
+            </AutocompleteSearchField>
+            <Button>
                 <ButtonText>{buttonText}</ButtonText>
-            </AutocompleteButton>
+            </Button>
         </AutocompleteWrapper>
+    )
+}
+
+function renderSuggestion(suggestion) {
+    return (
+        <div>{suggestion.title}</div>
+    )
+};
+
+export default function Autocomplete({ placeholder, buttonText, suggestionsList, onRequestSearch }: AutocompleteProps) {
+
+    const [suggestions, updateSuggestions] = useState([]);
+    const [value, updateValue] = useState('');
+
+    function handleChange(event, { newValue }) {
+        updateValue(newValue)
+        if(onRequestSearch) {
+            onRequestSearch(newValue)
+        }
+    }
+
+    function onSuggestionsFetchRequested({ value }) {
+        updateSuggestions(getSuggestions(value, suggestionsList))
+    };
+
+    function onSuggestionsClearRequested() {
+        updateSuggestions([])
+    };
+
+
+    const inputProps = {
+        placeholder: placeholder,
+        buttonText: buttonText,
+        value,
+        onChange: handleChange
+    };
+
+    return (
+        <Autosuggest
+            suggestions={suggestions}
+            onSuggestionsFetchRequested={onSuggestionsFetchRequested}
+            onSuggestionsClearRequested={onSuggestionsClearRequested}
+            getSuggestionValue={getSuggestionValue}
+            renderSuggestion={renderSuggestion}
+            renderInputComponent={renderInputComponent}
+            inputProps={inputProps}
+        />
     );
 }
+
 
 const AutocompleteWrapper = styled(Wrapper)`
     display: flex;
@@ -48,7 +113,7 @@ const AutocompleteSearchField = styled(SearchField)`
     }
 `;
 
-const AutocompleteButton = styled.div`
+const Button = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;

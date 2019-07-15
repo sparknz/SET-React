@@ -3,6 +3,24 @@
 ```js
 <h2>Default</h2>
 
-<Autocomplete placeholder={'Enter a store or location'} buttonText={'Use current location'} iconName={"https://www.swellfundraising.com/hubfs/Swellfundraising-Mar2017-Theme/Images/instagram_footer.svg?t=1515427643900"} />
+<Autocomplete
+placeholder={'What are you looking for?'}
+buttonText={'use current location'}
+onRequestSearch={(value) => console.log('Search Value: ' + value)}
+suggestionsList={[
+    {
+        title: 'Iphone X',
+    },
+    {
+        title: 'Iphone 8',
+    },
+    {
+        title: 'Samsung S10',
+    },
+    {
+        title: 'Samsung S09',
+    },
+]}
+/>
 
 ```
