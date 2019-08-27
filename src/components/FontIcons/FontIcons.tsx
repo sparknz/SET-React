@@ -1,5 +1,6 @@
 import * as React from 'react';
-import styled, { css } from 'styled-components';
+import { Box } from 'reakit';
+import { css } from 'styled-components';
 import { prop } from 'styled-tools';
 
 interface BaseFontIconProps {
@@ -16,7 +17,7 @@ interface BaseFontIconProps {
     role: string;
 }
 
-const BaseFontIcon = (styled.span) < BaseFontIconProps >`
+const BaseFontIcon = (Box) < BaseFontIconProps >`
     font-family: 'spark-icon-family', arial, sans-serif;
     speak: none;
     font-style: normal;
