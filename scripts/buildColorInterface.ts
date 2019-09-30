@@ -16,7 +16,6 @@ const rec = (thing, otherThing, path): void => {
 };
 rec(tokens.base.color, res, '');
 
-
 fs.writeFileSync('./src/components/SETThemeProvider/interfaces.ts', `
 import { FlattenInterpolation, ThemeProps } from 'styled-components'
 
