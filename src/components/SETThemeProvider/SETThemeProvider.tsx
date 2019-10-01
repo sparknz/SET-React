@@ -1,56 +1,28 @@
-/* eslint-disable no-param-reassign */
+import React from "react";
+import { ThemeProvider } from "styled-components";
+import pinkGreen from '@sparknz/set-tokens/dist/js/pinkGreen.json';
+import purpleOrange from '@sparknz/set-tokens/dist/js/purpleOrange.json';
+import halloween from '@sparknz/set-tokens/dist/js/halloween.json';
 
-import React from 'react';
-import tokens from '@sparknz/set-tokens/build/web/tokensWithVariations';
-import {
-    ThemeProvider, css, FlattenInterpolation, ThemeProps,
-} from 'styled-components';
-import merge from 'deepmerge';
-import { prop } from 'styled-tools';
-import { Colors } from './interfaces';
+const globalAny:any = global;
 
-type CSS = FlattenInterpolation<ThemeProps<any>>;
-
-function createColorGetter(property: string): Colors {
-    const res = {};
-    const rec = (thing, otherThing, path): void => {
-        Object.keys(thing).forEach((key): void => {
-            if (thing[key].value) {
-                otherThing[key] = (props): CSS => {
-                    if (thing[key].warning) {
-                        console.warn(thing[key].warning);
-                    }
-                    return css`${property}${prop(`theme.color${path}.${key}.value`)(props)}`;
-                };
-            } else {
-                if (!otherThing[key]) {
-                    otherThing[key] = {};
-                }
-                rec(thing[key], otherThing[key], `${path}.${key}`);
-            }
-        });
-    };
-    rec(tokens.base.color, res, '');
-    return res as Colors;
+const themes = {
+    "pink-green": pinkGreen,
+    "purple-orange": purpleOrange,
+    "halloween": halloween
 }
 
-export const backgroundColor: Colors = createColorGetter('background-color: ');
-export const textColor: Colors = createColorGetter('color: ');
-export const borderColor: Colors = createColorGetter('border-color: ');
-export const borderColorLeft: Colors = createColorGetter('border-left-color: ');
-export const borderColorRight: Colors = createColorGetter('border-right-color: ');
-export const borderColorTop: Colors = createColorGetter('border-top-color: ');
-export const borderColorBottom: Colors = createColorGetter('border-bottom-color: '); 
+export default function SparkThemeProvider({ children, theme }) {
+  const preferredTheme = globalAny.window.theme ? themes[globalAny.window.theme] : pinkGreen;
+  const finalTheme = {
+    ...preferredTheme,
+    isForegroundInverted: false,
+    isNightMode: false,
+  }
 
-declare global {
-    interface Window {
-        theme?: string;
-    }
+  return (
+    <ThemeProvider theme={finalTheme} >
+        <div>{children}</div>
+    </ThemeProvider>
+  );
 }
-
-
-export default ({ theme = window.theme || 'purple-orange', ...props }): JSX.Element => {
-    const constructedTheme = merge(tokens.base, tokens.themes[theme] || {});
-    return <ThemeProvider {...props} theme={constructedTheme} />;
-};
-
