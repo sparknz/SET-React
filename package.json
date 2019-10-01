@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "@sparknz/set-tokens": "^0.0.13",
+    "@sparknz/set-tokens": "^0.0.14",
     "color": "^3.1.2",
     "deepmerge": "^3.2.0",
     "react": "^16.8.6",

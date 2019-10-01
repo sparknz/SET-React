@@ -1,21 +1,21 @@
 import { prop } from 'styled-tools';
 
-export const mainColor = (path, defaultValue?: any) => (props) => {
+export const mainColor = (path) => (props) => {
     const invert = props.theme.isNightMode;
-    return prop(`${path}.${invert ? 'invert' : 'default'}`, defaultValue)(props.theme.color.main);
+    return prop(`${path}.${invert ? 'invert' : 'default'}`, 'default')(props.theme.color.main);
 }
 
-export const backgroundColor = (path, defaultValue?: any) => (props) => {
+export const backgroundColor = (path) => (props) => {
     const invert = props.theme.isNightMode;
-    return prop(`${path}.${invert ? 'invert' : 'default'}`, defaultValue)(props.theme.color.background);
+    return prop(`${path}.${invert ? 'invert' : 'default'}`, 'default')(props.theme.color.background);
 }
 
-export const textColor = (path, defaultValue?: any) => (props) => {
-    const invert = props.theme.isForgroundInverted;
-    return prop(`${path}.${invert ? 'invert' : 'default'}`, defaultValue)(props.theme.color.text);
+export const textColor = (path) => (props) => {
+    const invert = props.theme.isForegroundInverted;
+    return prop(`${path}.${invert ? 'invert' : 'default'}`, 'default')(props.theme.color.text);
 }
 
-export const borderColor = (path, defaultValue?: any) => (props) => {
-    const invert = props.theme.isForgroundInverted;
-    return prop(`${path}.${invert ? 'invert' : 'default'}`, defaultValue)(props.theme.color.border);
+export const borderColor = (path) => (props) => {
+    const invert = props.theme.isForegroundInverted;
+    return prop(`${path}.${invert ? 'invert' : 'default'}`, 'default')(props.theme.color.border);
 }
