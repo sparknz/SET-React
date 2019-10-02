@@ -8,14 +8,17 @@ interface IWrapper extends React.HTMLProps<HTMLDivElement> {
 }
 
 const Wrapper = styled.div<IWrapper>`
-  background-color: ${props => backgroundColor(props.boxType)};
+  ${props => backgroundColor(props.boxType)};
   color: blue;
 `
 
 export default function Box({ boxType, children, ...props }: {boxType: string, children:React.ReactChildren}) {
 
   const newtheme = (theme) => {
-    const invertForground = Color(backgroundColor(boxType)({theme})).isDark();
+    const colorHexWithSemi = backgroundColor(boxType)({theme}).replace("background-color: ","");
+    const colorHex = colorHexWithSemi.replace(";","");
+
+    const invertForground = Color(colorHex).isDark();
     return ({
       ...theme,
       isForegroundInverted: invertForground,
