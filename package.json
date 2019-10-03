@@ -3,6 +3,7 @@
     "@sparknz/set-tokens": "^0.0.18",
     "color": "^3.1.2",
     "deepmerge": "^3.2.0",
+    "gh-pages": "^2.1.1",
     "react": "^16.8.6",
     "react-docgen-typescript": "^1.12.3",
     "react-dom": "^16.8.6",
@@ -14,13 +15,17 @@
   "scripts": {
     "test": "jest && yarn styleguidest-visual",
     "start": "styleguidist server",
+    "styleguide:build": "styleguidist build",
+    "predeploy": "yarn run styleguide:build",
+    "deploy": "gh-pages -d styleguide",
     "styleguidest-visual": "styleguidist build && styleguidist-visual test --url \"file://$(pwd)/styleguide/index.html\" --wait 50"
   },
   "name": "set-react",
   "version": "0.0.1",
   "main": "index.js",
-  "author": "Mike Tamis <mike.tamis@spark.co.nz>",
+  "author": "Mike Tamis <mike.tamis@spark.co.nz>, David Xu <david.xu@spark.co.nz>",
   "license": " ",
+  "homepage": "https://sparknz.github.io/SET-React",
   "devDependencies": {
     "@babel/preset-env": "^7.4.3",
     "@babel/preset-react": "^7.0.0",
