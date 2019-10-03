@@ -44,3 +44,13 @@ export const zIndex = (path: string) => (props) => {
     return `z-index: ${zIndex};`
 }
 
+export const fontSize = (path: string) => (props) => {
+    const fontSize = prop(`${path}`)(props.theme.size.font);
+    return `font-size: ${fontSize}`;
+}
+
+export const spacing = (path: string) => (props) => {
+    const spacing = prop(`${path}`)(props.theme.size.spacing);
+    return spacing;
+}
+
