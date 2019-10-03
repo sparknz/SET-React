@@ -1,6 +1,7 @@
 import React from 'react';
 import {breakpoint, textColor, fontSize} from '../../helpers/themeHelpers';
 import styled from 'styled-components';
+import _ from 'lodash';
 
 const BaseText = styled.p`
     ${textColor('default')}
@@ -8,52 +9,29 @@ const BaseText = styled.p`
     margin: 0;
 `
 
-/** @visibleName Text */
-export const Xs = styled(BaseText)`
-    ${fontSize('xs')}
-    ${breakpoint('tablet')}{
-        ${fontSize('xxs')}
-    }
-`
+interface ITextComponents{
+    Xs?: React.ElementType;
+    Small? : React.ElementType;
+    Default?: React.ElementType;
+    Large?: React.ElementType;
+    Xl?: React.ElementType;
+    Xxl?: React.ElementType;
+    Xxxl?: React.ElementType;
+}
 
-export const Small = styled(BaseText)`
-    ${fontSize('small')}
-    ${breakpoint('tablet')}{
-        ${fontSize('xs')}
-    }
-`
+const reducer = (acc: ITextComponents, val: string, index: number, srcArray: string[]) => ({
+    ...acc,
+    [_.capitalize(val)]: styled(BaseText)`
+        ${fontSize(val)}
+        ${breakpoint('tablet')}{
+            ${fontSize(srcArray[index-1])}
+        }
+    `
+})
 
-export const Default = styled(BaseText)`
-    ${fontSize('default')}
-    ${breakpoint('tablet')}{
-        ${fontSize('small')}
-    }
-`
+const generateTexts = () => {
+    return ['xs', 'small', 'default', 'large', 'xl', 'xxl', 'xxxl'].reduce(reducer, {});
+}
 
-export const Large = styled(BaseText)`
-    ${fontSize('large')}
-    ${breakpoint('tablet')}{
-        ${fontSize('default')}
-    }
-`
-
-export const Xl = styled(BaseText)`
-    ${fontSize('xl')}
-    ${breakpoint('tablet')}{
-        ${fontSize('large')}
-    }
-`
-
-export const Xxl = styled(BaseText)`
-    ${fontSize('xxl')}
-    ${breakpoint('tablet')}{
-        ${fontSize('xl')}
-    }
-`
-
-export const Xxxl = styled(BaseText)`
-    ${fontSize('xxxl')}
-    ${breakpoint('tablet')}{
-        ${fontSize('xxl')}
-    }
-`
+/** @component */
+export default generateTexts();
