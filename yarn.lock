@@ -899,10 +899,10 @@
   resolved "https://registry.yarnpkg.com/@sinonjs/text-encoding/-/text-encoding-0.7.1.tgz#8da5c6530915653f3a1f38fd5f101d8c3f8079c5"
   integrity sha512-+iTbntw2IZPb/anVDbypzfQa+ay64MW0Zo8aJ8gZPWMMK6/OubMVb6lUPMagqjOPnmtauXnFCACVl3O7ogjeqQ==
 
-"@sparknz/set-tokens@^0.0.18":
-  version "0.0.18"
-  resolved "https://registry.yarnpkg.com/@sparknz/set-tokens/-/set-tokens-0.0.18.tgz#5e1d2cac676a9bf42fa2047d51cbac4e4858b7b9"
-  integrity sha512-xkie3Yo52bQ6xcJakOZTHuc1bjujjHjBhQcxjrp/VrLBcw3tTqVbVwVZm7X1QaHoFpbC7fgyo5xncP1Zg96EBA==
+"@sparknz/set-tokens@^0.0.20":
+  version "0.0.20"
+  resolved "https://registry.yarnpkg.com/@sparknz/set-tokens/-/set-tokens-0.0.20.tgz#d1df97171c89eb39fbff5535a691c425d13c8e43"
+  integrity sha512-bD0sEkqFHMx9FOyfHXGYuCOvMJaaU5wGHgjDLshnQWTALgs1PzzecYMZ8qD7MVweb9OTgZEcItz5w+ib8q0RTA==
 
 "@types/babel__core@^7.1.0":
   version "7.1.0"
