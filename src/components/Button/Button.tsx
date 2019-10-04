@@ -2,7 +2,7 @@
 import React from 'react';
 import { Button } from 'reakit';
 import styled from 'styled-components';
-import { backgroundColor, textColor, borderColor } from '../../helpers/themeHelpers';
+import { backgroundColor, textColor, borderColor, shadowColor } from '../../helpers/themeHelpers';
 
 const states = (states) => {
     if (!Array.isArray(states)) {
@@ -14,8 +14,7 @@ const states = (states) => {
 }
 
 const BaseButton = styled(Button)`
-    border-width: 1px;
-    border-radius: 0;
+    border: none;
     padding: 10px 20px;
     height: 40px;
     font-size: 14px;
@@ -40,7 +39,7 @@ const StyledButton = styled(BaseButton)`
   }
 
   ${states('focus')} {
-    box-shadow: 0px 0px 4px 2px #007CBD;
+    box-shadow: 0px 0px 4px 2px ${shadowColor('interaction1')};
     outline: none;
   }
 
@@ -67,13 +66,15 @@ const StyledButtonWhite = styled(StyledButton)`
         ${backgroundColor('disabled2')};
     }
     ${states('focus')} {
-        box-shadow: 0px 0px 4px 2px #f2f2f2;
+        box-shadow: 0px 0px 4px 2px ${shadowColor('interaction2')};
         outline: none;
     }
 `
 
 
 const SecondaryButton = styled(BaseButton)`
+    border-width: 2px;
+    border-radius: 5px;
     ${textColor('interaction1')};
     background-color: transparent;
     border: 1px solid;
@@ -92,7 +93,7 @@ const SecondaryButton = styled(BaseButton)`
         ${borderColor('disabled1')};
     }
     ${states('focus')} {
-        box-shadow: 0px 0px 4px 2px #f2f2f2;
+        box-shadow: 0px 0px 4px 2px ${shadowColor('interaction1')};
         outline: none;
     }
 `;
@@ -113,12 +114,17 @@ const SecondaryButtonWhite = styled(SecondaryButton)`
         ${textColor('disabled2')};
         ${borderColor('disabled2')};
     }
+    ${states('focus')} {
+        box-shadow: 0px 0px 4px 2px ${shadowColor('interaction2')};
+    }
 `;
 
 const TertiaryButton = styled(BaseButton)`
     ${textColor('interaction1')};
     background-color: transparent;
-    border: none;
+    ${states('focus')} {
+        outline: none;
+    }
 `;
 
 const TertiaryButtonWhite = styled(TertiaryButton)`
