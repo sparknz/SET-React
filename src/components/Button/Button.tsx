@@ -22,7 +22,7 @@ const BaseButton = styled(Button)`
     text-decoration: none;
 `
 
-const StyledButton = styled(BaseButton)`
+const PrimaryButton = styled(BaseButton)`
 
   ${backgroundColor('interaction1')};
   ${textColor('interaction2')};
@@ -49,7 +49,7 @@ const StyledButton = styled(BaseButton)`
   }
 `
 
-const StyledButtonWhite = styled(StyledButton)`
+const PrimaryButtonWhite = styled(PrimaryButton)`
     ${textColor('interaction1')};
     ${backgroundColor('interaction2')};
 
@@ -70,7 +70,6 @@ const StyledButtonWhite = styled(StyledButton)`
         outline: none;
     }
 `
-
 
 const SecondaryButton = styled(BaseButton)`
     border-width: 2px;
@@ -147,9 +146,9 @@ export default ({ variant, ...props }: { variant?: VARIANTS }): JSX.Element => {
     }
     switch (variant) {
         case VARIANTS.PRIMARY_BLUE:
-            return <StyledButton {...props} />;
+            return <PrimaryButton {...props} />;
         case VARIANTS.PRIMARY_WHITE:
-            return <StyledButtonWhite {...props} />;
+            return <PrimaryButtonWhite {...props} />;
         case VARIANTS.SECONDARY_BLUE:
             return <SecondaryButton {...props} />;
         case VARIANTS.SECONDARY_WHITE:
@@ -159,6 +158,6 @@ export default ({ variant, ...props }: { variant?: VARIANTS }): JSX.Element => {
         case VARIANTS.TERTIARY_WHITE:
                 return <TertiaryButtonWhite {...props} />;
         default:
-            return <StyledButton {...props} />;
+            return <PrimaryButton {...props} />;
     }
 };
