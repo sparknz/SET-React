@@ -13,6 +13,7 @@
     "styled-tools": "^1.7.1"
   },
   "scripts": {
+    "build": "webpack --mode=development",
     "test": "jest && yarn styleguidest-visual",
     "start": "styleguidist server",
     "styleguide:build": "styleguidist build",
@@ -21,8 +22,11 @@
     "styleguidest-visual": "styleguidist build && styleguidist-visual test --url \"file://$(pwd)/styleguide/index.html\" --wait 50"
   },
   "name": "@sparknz/set-react",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "main": "index.js",
+  "files": [
+    "dist"
+  ],
   "author": "Mike Tamis <mike.tamis@spark.co.nz>, David Xu <david.xu@spark.co.nz>",
   "license": " ",
   "homepage": "https://sparknz.github.io/SET-React",
@@ -53,6 +57,7 @@
     "ts-jest": "^24.0.2",
     "ts-node": "^8.0.3",
     "typescript": "^3.4.2",
-    "webpack": "^4.30.0"
+    "webpack": "^4.30.0",
+    "webpack-cli": "^3.3.9"
   }
 }
