@@ -21,7 +21,7 @@
     "styleguidest-visual": "styleguidist build && styleguidist-visual test --url \"file://$(pwd)/styleguide/index.html\" --wait 50"
   },
   "name": "set-react",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "main": "index.js",
   "author": "Mike Tamis <mike.tamis@spark.co.nz>, David Xu <david.xu@spark.co.nz>",
   "license": " ",
