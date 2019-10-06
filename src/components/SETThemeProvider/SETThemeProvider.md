@@ -26,6 +26,7 @@ class App extends Page {
 - borderRightColor
 - borderBottomColor
 - borderLeftColor
+- shadowColor
 
 > Note: you should never need to use the backgroundColor helper file directly, as any div with a background should be created using the Box component.
 
@@ -41,6 +42,10 @@ const MyComponent2 = styled.span`
 const MyComponent3 = styled.div`
     ${backgroundColor('error')} //border-bottom: #123456;
 `;
+
+const MyComponent4 = styled.div`
+    box-shadow: 0px 0px 4px 2px ${shadowColor('interaction1')};
+`
 ```
 
 #### Layout helpers

@@ -29,3 +29,9 @@ export const Xs = styled(BaseText)`
     }
 `
 ```
+
+By default Text components uses `p` tags, you might want to use other tags such as `h1` for semantic correctness, in that case, you should use the `as` prop.
+
+```jsx
+<Text.Xl as="h1">This is H1</Text.Xl>
+```

@@ -9,10 +9,14 @@ Use the Box component to create a div with a background color.
     <Box boxType="error" style={{height: "40px", width: "80px"}}/>
     <Box boxType="info" style={{height: "40px", width: "80px"}}/>
     <Box boxType="success" style={{height: "40px", width: "80px"}}/>
-    <Box boxType="interaction" style={{height: "40px", width: "80px"}}/>
-    <Box boxType="hover" style={{height: "40px", width: "80px"}}/>
-    <Box boxType="disabled" style={{height: "40px", width: "80px"}}/>
-    <Box boxType="active" style={{height: "40px", width: "80px"}}/>
+    <Box boxType="interaction1" style={{height: "40px", width: "80px"}}/>
+    <Box boxType="hover1" style={{height: "40px", width: "80px"}}/>
+    <Box boxType="disabled1" style={{height: "40px", width: "80px"}}/>
+    <Box boxType="active1" style={{height: "40px", width: "80px"}}/>
+    <Box boxType="interaction2" style={{height: "40px", width: "80px"}}/>
+    <Box boxType="hover2" style={{height: "40px", width: "80px"}}/>
+    <Box boxType="disabled2" style={{height: "40px", width: "80px"}}/>
+    <Box boxType="active2" style={{height: "40px", width: "80px"}}/>
 </div>
 ```
 

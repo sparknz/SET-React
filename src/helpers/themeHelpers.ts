@@ -34,6 +34,12 @@ export const borderLeftColor = (path: string) => {
     borderColor(path, 'left');
 }
 
+export const shadowColor = (path: string) => (props) => {
+    const invert = props.theme.isForegroundInverted;
+    const colorHex = prop(`${path}.${invert ? 'invert' : 'default'}`)(props.theme.color.shadow);
+    return colorHex;
+}
+
 export const breakpoint = (path: string) => (props) => {
     const breakpoint = prop(`${path}`)(props.theme.layout.breakpoint);
     return `@media screen and (max-width: ${breakpoint}px)`
