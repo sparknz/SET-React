@@ -19,7 +19,7 @@
     "styleguidest-visual": "styleguidist build && styleguidist-visual test --url \"file://$(pwd)/styleguide/index.html\" --wait 50"
   },
   "name": "@sparknz/set-react",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "main": "index.js",
   "files": [
     "dist"
@@ -49,7 +49,6 @@
     "prettier": "1.17.0",
     "react-styleguidist-visual": "^0.8.0",
     "react-test-renderer": "^16.8.6",
-    "singel": "^0.5.4",
     "source-map-loader": "^0.2.4",
     "ts-jest": "^24.0.2",
     "ts-node": "^8.0.3",
