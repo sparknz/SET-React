@@ -3,7 +3,8 @@ module.exports = {
     entry: "./src/index.tsx",
     output: {
         filename: "bundle.js",
-        path: __dirname + "/dist"
+        path: __dirname + "/dist",
+        libraryTarget: 'commonjs2',
     },
 
     // Enable sourcemaps for debugging webpack"s output.
@@ -29,5 +30,10 @@ module.exports = {
             },
         ]
     },
+    externals: {
+        'react': 'react',
+        'react-dom': 'commonjs react-dom',
+        'styled-components': 'commonjs styled-components'
+    }
 
 };

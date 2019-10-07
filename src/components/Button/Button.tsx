@@ -73,7 +73,7 @@ const PrimaryButtonWhite = styled(PrimaryButton)`
 
 const SecondaryButton = styled(BaseButton)`
     border-width: 2px;
-    border-radius: 5px;
+    border-radius: 2px;
     ${textColor('interaction1')};
     background-color: transparent;
     border: 1px solid;
