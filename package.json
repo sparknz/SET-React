@@ -19,8 +19,8 @@
     "styleguidest-visual": "styleguidist build && styleguidist-visual test --url \"file://$(pwd)/styleguide/index.html\" --wait 50"
   },
   "name": "@sparknz/set-react",
-  "version": "0.0.15",
-  "main": "index.js",
+  "version": "0.0.16",
+  "main": "/src/index.js",
   "files": [
     "dist"
   ],
