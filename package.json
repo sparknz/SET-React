@@ -4,15 +4,13 @@
     "color": "^3.1.2",
     "deepmerge": "^3.2.0",
     "gh-pages": "^2.1.1",
-    "react": "^16.8.6",
     "react-docgen-typescript": "^1.12.3",
-    "react-dom": "^16.8.6",
     "react-styleguidist": "^9.0.7",
     "reakit": "^1.0.0-beta.0",
-    "styled-components": "^4.2.0",
     "styled-tools": "^1.7.1"
   },
   "scripts": {
+    "build": "webpack --mode=development",
     "test": "jest && yarn styleguidest-visual",
     "start": "styleguidist server",
     "styleguide:build": "styleguidist build",
@@ -20,9 +18,12 @@
     "deploy": "gh-pages -d styleguide",
     "styleguidest-visual": "styleguidist build && styleguidist-visual test --url \"file://$(pwd)/styleguide/index.html\" --wait 50"
   },
-  "name": "set-react",
-  "version": "0.0.1",
-  "main": "index.js",
+  "name": "@sparknz/set-react",
+  "version": "0.0.17",
+  "main": "/dist/bundle.js",
+  "files": [
+    "dist"
+  ],
   "author": "Mike Tamis <mike.tamis@spark.co.nz>, David Xu <david.xu@spark.co.nz>",
   "license": " ",
   "homepage": "https://sparknz.github.io/SET-React",
@@ -48,11 +49,11 @@
     "prettier": "1.17.0",
     "react-styleguidist-visual": "^0.8.0",
     "react-test-renderer": "^16.8.6",
-    "singel": "^0.5.4",
     "source-map-loader": "^0.2.4",
     "ts-jest": "^24.0.2",
     "ts-node": "^8.0.3",
     "typescript": "^3.4.2",
-    "webpack": "^4.30.0"
+    "webpack": "^4.30.0",
+    "webpack-cli": "^3.3.9"
   }
 }

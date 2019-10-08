@@ -3,7 +3,10 @@ module.exports = {
     entry: "./src/index.tsx",
     output: {
         filename: "bundle.js",
-        path: __dirname + "/dist"
+        path: __dirname + "/dist",
+        library: '@sparknz/set-react',
+        libraryTarget: 'commonjs2',
+        publicPath: "/dist/bundle"
     },
 
     // Enable sourcemaps for debugging webpack"s output.
@@ -29,5 +32,10 @@ module.exports = {
             },
         ]
     },
+    externals: {
+        'react': 'react',
+        'react-dom': 'commonjs react-dom',
+        'styled-components': 'commonjs styled-components'
+    }
 
 };
