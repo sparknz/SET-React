@@ -35,12 +35,27 @@ export const borderLeftColor = (path: string) => {
 }
 
 export const breakpoint = (path: string) => (props) => {
-    const breakpoint = prop(`${path}`)(props.theme.layout.breakpoint);
+    const breakpoint = prop(path)(props.theme.layout.breakpoint);
     return `@media screen and (max-width: ${breakpoint}px)`
 }
 
 export const zIndex = (path: string) => (props) => {
-    const zIndex = prop(`${path}`)(props.theme.layout.zIndex);
+    const zIndex = prop(path)(props.theme.layout.zIndex);
     return `z-index: ${zIndex};`
+}
+
+export const fontSize = (path: string) => (props) => {
+    const fontSize = prop(path)(props.theme.size.font);
+    return `font-size: ${fontSize};`;
+}
+
+export const spacing = (path: string) => (props) => {
+    const spacing = prop(path)(props.theme.size.spacing);
+    return spacing;
+}
+
+export const borderRadius = (path: string) => (props) => {
+    const radius = prop(path)(props.theme.size.radius);
+    return `border-radius: ${radius};`;
 }
 

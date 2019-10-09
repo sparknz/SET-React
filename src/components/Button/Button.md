@@ -3,50 +3,64 @@
 ## Primary
 
 ```js
-<h2>Default</h2>
-<Button>Hello</Button>
-
-<h2>Hover</h2>
-<Button hover>Hello</Button>
-
-<h2>Active</h2>
-<Button active>Hello</Button>
-
-<h2>Focus</h2>
-<Button focus>Hello</Button>
+<div>
+    <div style={{display: "flex", "justify-content": "space-around", "background-color": "Gainsboro", "padding": "20px"}}>
+        <Button>Default</Button>
+        <Button hover>Hover</Button>
+        <Button active>Active</Button>
+        <Button disabled>Disabled</Button>
+        <Button focus>Focus</Button>
+    </div>
+    <div style={{display: "flex", "justify-content": "space-around", "background-color": "Gainsboro", "padding": "20px"}}>
+        <Button variant="primary_white">Default</Button>
+        <Button variant="primary_white" hover>Hover</Button>
+        <Button variant="primary_white" active>Active</Button>
+        <Button variant="primary_white" disabled>Disabled</Button>
+        <Button variant="primary_white" focus>Focus</Button>
+    </div>
+</div>
 ```
 
 
 
 
 ```js
-<h2>Default</h2>
-<Button variant="secondary">Hello</Button>
-
-<h2>Hover</h2>
-<Button variant="secondary" hover>Hello</Button>
-
-<h2>Active</h2>
-<Button variant="secondary" active>Hello</Button>
-
-<h2>Focus</h2>
-<Button variant="secondary" focus>Hello</Button>
+<div>
+    <div style={{display: "flex", "justify-content": "space-around", "background-color": "Gainsboro", "padding": "20px"}}>
+        <Button variant="secondary_blue">Default</Button>
+        <Button variant="secondary_blue" hover>Hover</Button>
+        <Button variant="secondary_blue" active>Active</Button>
+        <Button variant="secondary_blue" disabled>Disabled</Button>
+        <Button variant="secondary_blue" focus>Focus</Button>
+    </div>
+    <div style={{display: "flex", "justify-content": "space-around", "background-color": "Gainsboro", "padding": "20px"}}>
+        <Button variant="secondary_white">Default</Button>
+        <Button variant="secondary_white" hover>Hover</Button>
+        <Button variant="secondary_white" active>Active</Button>
+        <Button variant="secondary_white" disabled>Disabled</Button>
+        <Button variant="secondary_white" focus>Focus</Button>
+    </div>
+</div>
 ```
 
 
 
 
 ```js
-<h2>Default</h2>
-<Button variant="tertiary">Hello</Button>
-
-<h2>Hover</h2>
-<Button variant="tertiary" hover>Hello</Button>
-
-<h2>Active</h2>
-<Button variant="tertiary" active>Hello</Button>
-
-<h2>Focus</h2>
-<Button variant="tertiary" focus>Hello</Button>
+<div>
+    <div style={{display: "flex", "justify-content": "space-around", "background-color": "Gainsboro", "padding": "20px"}}>
+        <Button variant="tertiary_blue" >Default</Button>
+        <Button variant="tertiary_blue" hover>Hover</Button>
+        <Button variant="tertiary_blue" active>Active</Button>
+        <Button variant="tertiary_blue" disabled>Disabled</Button>
+        <Button variant="tertiary_blue" focus>Focus</Button>
+    </div>
+    <div style={{display: "flex", "justify-content": "space-around", "background-color": "Gainsboro", "padding": "20px"}}>
+        <Button variant="tertiary_white" >Default</Button>
+        <Button variant="tertiary_white" hover>Hover</Button>
+        <Button variant="tertiary_white" active>Active</Button>
+        <Button variant="tertiary_white" disabled>Disabled</Button>
+        <Button variant="tertiary_white" focus>Focus</Button>
+    </div>
+</div>
 ```
-

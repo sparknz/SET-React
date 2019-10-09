@@ -29,5 +29,24 @@ module.exports = {
             },
         ]
     },
+    externals: {
+        "externals": {
+            "react": {
+                "commonjs": 'react',
+                "commonjs2": 'react',
+                "amd": 'react',
+            },
+            "styled-components": {
+                "commonjs": 'styled-components',
+                "commonjs2": 'styled-components',
+                "amd": 'styled-components',
+            },
+            "react-dom": {
+                "commonjs": 'react-dom',
+                "commonjs2": 'react-dom',
+                "amd": 'react-dom',
+            },
+        },
+    }
 
 };

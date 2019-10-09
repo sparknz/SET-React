@@ -3,30 +3,18 @@ Use the Box component to create a div with a background color.
 
 ```js
 <div style={{display: 'flex'}}>
-    <Box boxType="default" style={{height: "40px", width: "80px"}} />
-    <Box boxType="alt1" style={{height: "40px", width: "80px"}}/>
-    <Box boxType="alt2" style={{height: "40px", width: "80px"}}/>
-    <Box boxType="error" style={{height: "40px", width: "80px"}}/>
-    <Box boxType="info" style={{height: "40px", width: "80px"}}/>
-    <Box boxType="success" style={{height: "40px", width: "80px"}}/>
-    <Box boxType="interaction" style={{height: "40px", width: "80px"}}/>
-    <Box boxType="hover" style={{height: "40px", width: "80px"}}/>
-    <Box boxType="disabled" style={{height: "40px", width: "80px"}}/>
-    <Box boxType="active" style={{height: "40px", width: "80px"}}/>
+    <Box variant="default" style={{height: "40px", width: "80px"}} />
+    <Box variant="alt1" style={{height: "40px", width: "80px"}}/>
+    <Box variant="alt2" style={{height: "40px", width: "80px"}}/>
+    <Box variant="error" style={{height: "40px", width: "80px"}}/>
+    <Box variant="info" style={{height: "40px", width: "80px"}}/>
+    <Box variant="success" style={{height: "40px", width: "80px"}}/>
+    <Box variant="interaction1" style={{height: "40px", width: "80px"}}/>
+    <Box variant="hover1" style={{height: "40px", width: "80px"}}/>
+    <Box variant="disabled1" style={{height: "40px", width: "80px"}}/>
+    <Box variant="active1" style={{height: "40px", width: "80px"}}/>
 </div>
 ```
-
-The 10 types of Boxes are:
-- default
-- alt1
-- alt2
-- error
-- info
-- success
-- interaction
-- hover
-- disabled
-- active
 
 The color for each type will change depending on the theme defined through `SETThemeProvider`
 
@@ -51,29 +39,28 @@ You could use it in all the different boxes and the text color will alter betwee
 import Text from '../../demo-components/ColorChangingText';
 
 <>
-    <Box boxType="default" >
+    <Box variant="default" >
         <Text>Hello World</Text>
     </Box>
 
-    <Box boxType="alt1" >
+    <Box variant="alt1" >
         <Text>Hello World</Text>
     </Box>
 
-    <Box boxType="alt2" >
+    <Box variant="alt2" >
         <Text>Hello World</Text>
     </Box>
 
-    <Box boxType="info" >
+    <Box variant="info" >
         <Text>Hello World</Text>
     </Box>
 
-    <Box boxType="error" >
+    <Box variant="error" >
         <Text>Hello World</Text>
     </Box>
 </>
 
 ```
-
 This works with text color, as well as border colors.
 
 ```jsx static
@@ -92,27 +79,26 @@ export default styled.div`
 import Border from '../../demo-components/ColorChangingBorder';
 
 <>
-    <Box boxType="default" style={{padding: "10px"}}>
+    <Box variant="default" style={{padding: "10px"}}>
         <Border/>
     </Box>
 
-    <Box boxType="alt1" style={{padding: "10px"}}>
+    <Box variant="alt1" style={{padding: "10px"}}>
         <Border/>
     </Box>
 
-    <Box boxType="alt2" style={{padding: "10px"}}>
+    <Box variant="alt2" style={{padding: "10px"}}>
         <Border/>
     </Box>
 
-    <Box boxType="info" style={{padding: "10px"}}>
+    <Box variant="info" style={{padding: "10px"}}>
         <Border/>
     </Box>
 
-    <Box boxType="error" style={{padding: "10px"}}>
+    <Box variant="error" style={{padding: "10px"}}>
         <Border/>
     </Box>
 </>
-
 ```
 
 Refer to [Spark Tokens](https://sparknz.github.io/SET-Docs) for all the avaliable text, border, and background colors 
