@@ -4,9 +4,12 @@
     "color": "^3.1.2",
     "deepmerge": "^3.2.0",
     "gh-pages": "^2.1.1",
+    "react": "^16.10.2",
     "react-docgen-typescript": "^1.12.3",
+    "react-dom": "^16.10.2",
     "react-styleguidist": "^9.0.7",
     "reakit": "^1.0.0-beta.0",
+    "styled-components": "^4.4.0",
     "styled-tools": "^1.7.1"
   },
   "scripts": {
@@ -19,7 +22,7 @@
     "styleguidest-visual": "styleguidist build && styleguidist-visual test --url \"file://$(pwd)/styleguide/index.html\" --wait 50"
   },
   "name": "@sparknz/set-react",
-  "version": "0.0.17",
+  "version": "0.0.18",
   "main": "/dist/bundle.js",
   "files": [
     "dist"
