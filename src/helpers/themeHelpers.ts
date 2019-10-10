@@ -1,15 +1,41 @@
 import { prop } from 'styled-tools';
 
+// export const baseColor = (path: string) => (props) => {
+//     return prop(`${path}`)(props.theme.color.base);
+// }
+
+export const baseColor = (props) => {
+    const colorObj = props.theme.color.base;
+    const Keys = Object.keys(colorObj);
+    return Keys.reduce((acc, key) => acc[key] = colorObj[key].value, {})
+}
+
+export const backgroundColor2 = (props) => {
+    const invert = props.theme.isNightMode;
+    const colorObj = props.theme.color.background;
+    const Keys = Object.keys(colorObj);
+    return Keys.reduce((acc, key) => acc[key] = colorObj[key][invert ? 'invert' : 'defualt'], {});
+}
+
 export const backgroundColor = (path: string) => (props) => {
     const invert = props.theme.isNightMode;
     const colorHex = prop(`${path}.${invert ? 'invert' : 'default'}`)(props.theme.color.background);
     return `background-color: ${colorHex};`;
 }
 
+
+
 export const textColor = (path: string) => (props) => {
     const invert = props.theme.isForegroundInverted;
     const colorHex = prop(`${path}.${invert ? 'invert' : 'default'}`)(props.theme.color.text);
     return `color: ${colorHex};`;
+}
+
+export const textColorColor2 = (props) => {
+    const invert = props.theme.isForegroundInverted;
+    const colorObj = props.theme.color.text;
+    const Keys = Object.keys(colorObj);
+    return Keys.reduce((acc, key) => acc[key] = colorObj[key][invert ? 'invert' : 'defualt'], {});
 }
 
 export const borderColor = (path: string, side?: string) => (props) => {
