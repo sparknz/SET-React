@@ -5,5 +5,5 @@ export default styled.div`
     height: 80px;
     width: 80px;
     border: 5px solid;
-    ${borderColor('default')};
+    ${borderColor.default};
 `;

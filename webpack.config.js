@@ -5,8 +5,9 @@ module.exports = {
         filename: "bundle.js",
         path: __dirname + "/dist",
         library: '@sparknz/set-react',
-        libraryTarget: 'commonjs2',
-        publicPath: "/dist/bundle"
+        libraryTarget: 'umd',
+        publicPath: "/dist/bundle",
+        umdNamedDefine: true
     },
 
     // Enable sourcemaps for debugging webpack"s output.
@@ -33,9 +34,22 @@ module.exports = {
         ]
     },
     externals: {
-        'react': 'react',
-        'react-dom': 'commonjs react-dom',
-        'styled-components': 'commonjs styled-components'
+        "styled-components": {
+          commonjs: 'styled-components',
+          commonjs2: 'styled-components',
+          amd: 'styled-components'
+        },
+        "react": {
+          commonjs: 'react',
+          commonjs2: 'react',
+          amd: 'React',
+          root: 'React'
+        },
+        "react-dom": {
+          commonjs: 'react-dom',
+          commonjs2: 'react-dom',
+          amd: 'ReactDom',
+          root: "ReactDom"
+        }
     }
-
 };

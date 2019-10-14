@@ -20,9 +20,12 @@ export default function SparkThemeProvider({ children, theme }) {
     isNightMode: false,
   }
 
+  console.log(JSON.stringify(pinkGreen));
+
   return (
     <ThemeProvider theme={finalTheme} >
         <div>{children}</div>
     </ThemeProvider>
   );
 }
+

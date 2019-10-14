@@ -45,7 +45,7 @@ import { textColor } from '../../helpers/themeHelpers';
 
 /** @component */
 export default styled.p`
-    ${textColor('default')}
+    ${textColor.default}
 `;
 ```
 

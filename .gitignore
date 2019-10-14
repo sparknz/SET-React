@@ -10,6 +10,8 @@ src/components/SETThemeProvider/interfaces.ts
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
+.npmrc
+.yarnrc
 
 ### macOS ###
 # General
