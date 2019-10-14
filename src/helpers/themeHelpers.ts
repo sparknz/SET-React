@@ -1,69 +1,73 @@
+import pinkGreen from '@sparknz/set-tokens/dist/js/pinkGreen.json';
 import { prop } from 'styled-tools';
+import {IRawTheme, IHelperResponse} from './interface';
 
-// export const baseColor = (path: string) => (props) => {
-//     return prop(`${path}`)(props.theme.color.base);
-// }
-
-export const baseColor = (props) => {
-    const colorObj = props.theme.color.base;
+export const textColor = function():IHelperResponse{
+    const template : IRawTheme = pinkGreen;
+    const colorObj = template.color.text;
     const Keys = Object.keys(colorObj);
-    return Keys.reduce((acc, key) => acc[key] = colorObj[key].value, {})
-}
+    const returnObj = Keys.reduce((acc, key) => {
+        acc[key] = ({theme} : {theme: any}) : string => {
+            const suffix = theme.isForegroundInverted ? 'invert' : 'default';
+            const colorHex = prop(`${key}.${suffix}`)(theme.color.text);
+            return `color: ${colorHex};`;
+        }
+        return acc;
+    }, {})
 
-export const backgroundColor2 = (props) => {
-    const invert = props.theme.isNightMode;
-    const colorObj = props.theme.color.background;
+    return returnObj;
+}();
+
+export const backgroundColor = function():IHelperResponse{
+    const template : IRawTheme = pinkGreen;
+    const colorObj = template.color.background;
     const Keys = Object.keys(colorObj);
-    return Keys.reduce((acc, key) => acc[key] = colorObj[key][invert ? 'invert' : 'defualt'], {});
-}
+    const returnObj = Keys.reduce((acc, key) => {
+        acc[key] = ({theme} : {theme: any}) : string => {
+            const suffix = theme.isNightMode ? 'invert' : 'default';
+            const colorHex = prop(`${key}.${suffix}`)(theme.color.background);
+            return `background-color: ${colorHex};`;
+        }
+        return acc;
+    }, {})
 
-export const backgroundColor = (path: string) => (props) => {
-    const invert = props.theme.isNightMode;
-    const colorHex = prop(`${path}.${invert ? 'invert' : 'default'}`)(props.theme.color.background);
-    return `background-color: ${colorHex};`;
-}
+    return returnObj;
+}();
 
-
-
-export const textColor = (path: string) => (props) => {
-    const invert = props.theme.isForegroundInverted;
-    const colorHex = prop(`${path}.${invert ? 'invert' : 'default'}`)(props.theme.color.text);
-    return `color: ${colorHex};`;
-}
-
-export const textColorColor2 = (props) => {
-    const invert = props.theme.isForegroundInverted;
-    const colorObj = props.theme.color.text;
+export const borderColor = function(side?: string):IHelperResponse{
+    const template : IRawTheme = pinkGreen;
+    const colorObj = template.color.border;
     const Keys = Object.keys(colorObj);
-    return Keys.reduce((acc, key) => acc[key] = colorObj[key][invert ? 'invert' : 'defualt'], {});
-}
+    const returnObj = Keys.reduce((acc, key) => {
+        acc[key] = ({theme} : {theme: any}) : string => {
+            const suffix = theme.isForegroundInverted ? 'invert' : 'default';
+            const colorHex = prop(`${key}.${suffix}`)(theme.color.border);
+            return `border-color${side ? `-${side}` : ""}: ${colorHex};`;
+        }
+        return acc;
+    }, {})
 
-export const borderColor = (path: string, side?: string) => (props) => {
-    const invert = props.theme.isForegroundInverted;
-    const colorHex = prop(`${path}.${invert ? 'invert' : 'default'}`)(props.theme.color.border);
-    return `border-color${side ? `-${side}` : ""}: ${colorHex};`;
-}
+    return returnObj;
+}();
 
-export const borderTopColor = (path: string) => {
-    borderColor(path, 'top');
-}
+export const shadowColor = function(side?: string):IHelperResponse{
+    const template : IRawTheme = pinkGreen;
+    const colorObj = template.color.shadow;
+    const Keys = Object.keys(colorObj);
+    const returnObj = Keys.reduce((acc, key) => {
+        acc[key] = ({theme} : {theme: any}) => {
+            const suffix = theme.isForegroundInverted ? 'invert' : 'default';
+            const colorHex = prop(`${key}.${suffix}`)(theme.color.shadow);
+            return colorHex;
+        }
+        return acc;
+    }, {})
 
-export const borderRightColor = (path: string) => {
-    borderColor(path, 'right');
-}
+    return returnObj;
+}();
 
-export const borderBottomColor = (path: string) => {
-    borderColor(path, 'bottom');
-}
-
-export const borderLeftColor = (path: string) => {
-    borderColor(path, 'left');
-}
-
-export const shadowColor = (path: string) => (props) => {
-    const invert = props.theme.isForegroundInverted;
-    const colorHex = prop(`${path}.${invert ? 'invert' : 'default'}`)(props.theme.color.shadow);
-    return colorHex;
+export const baseColor = (path: string) => (props) => {
+    return prop(`${path}`)(props.theme.color.base);
 }
 
 export const breakpoint = (path: string) => (props) => {
@@ -85,4 +89,3 @@ export const spacing = (path: string) => (props) => {
     const spacing = prop(`${path}`)(props.theme.size.spacing);
     return spacing;
 }
-

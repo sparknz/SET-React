@@ -3,6 +3,7 @@ import React from 'react';
 import { Button } from 'reakit';
 import styled from 'styled-components';
 import { backgroundColor, textColor, borderColor, shadowColor } from '../../helpers/themeHelpers';
+import { textColor2 } from '../../helpers/themeHelperObj';
 
 const states = (states) => {
     if (!Array.isArray(states)) {
@@ -24,49 +25,49 @@ const BaseButton = styled(Button)`
 
 const PrimaryButton = styled(BaseButton)`
 
-  ${backgroundColor('interaction1')};
-  ${textColor('interaction2')};
+  ${backgroundColor.interaction1};
+  ${textColor.interaction2};
 
   ${states('hover')} {
     outline: none;
     text-decoration: none;
     box-shadow: none;
-    ${backgroundColor('hover1')};
+    ${backgroundColor.hover1};
   }
 
   ${states('active')} {
-    ${backgroundColor('active1')};
+    ${backgroundColor.active1};
   }
 
   ${states('focus')} {
-    box-shadow: 0px 0px 4px 2px ${shadowColor('interaction1')};
+    box-shadow: 0px 0px 4px 2px ${shadowColor.interaction1};
     outline: none;
   }
 
   ${states('disabled')} {
     outline: none;
-    ${backgroundColor('disabled1')};
+    ${backgroundColor.disabled1};
   }
 `
 
 const PrimaryButtonWhite = styled(PrimaryButton)`
-    ${textColor('interaction1')};
-    ${backgroundColor('interaction2')};
+    ${textColor2.interaction1};
+    ${backgroundColor.interaction2};
 
     ${states('hover')} {
-        ${textColor('hover1')};
-        ${backgroundColor('hover2')};
+        ${textColor.hover1};
+        ${backgroundColor.hover2};
     }
     ${states('active')} {
-        ${textColor('active1')};
-        ${backgroundColor('active2')};
+        ${textColor.active1};
+        ${backgroundColor.active2};
     }
     ${states('disabled')} {
-        ${textColor('disabled1')};
-        ${backgroundColor('disabled2')};
+        ${textColor.disabled1};
+        ${backgroundColor.disabled2};
     }
     ${states('focus')} {
-        box-shadow: 0px 0px 4px 2px ${shadowColor('interaction2')};
+        box-shadow: 0px 0px 4px 2px ${shadowColor.interaction2};
         outline: none;
     }
 `
@@ -74,52 +75,52 @@ const PrimaryButtonWhite = styled(PrimaryButton)`
 const SecondaryButton = styled(BaseButton)`
     border-width: 2px;
     border-radius: 2px;
-    ${textColor('interaction1')};
+    ${textColor.interaction1};
     background-color: transparent;
     border: 1px solid;
-    ${borderColor('interaction1')};
+    ${borderColor.interaction1};
 
     ${states('hover')} {
-        ${textColor('hover1')};
-        ${borderColor('hover1')};
+        ${textColor2.hover1};
+        ${borderColor.hover1};
     }
     ${states('active')} {
-        ${textColor('active1')};
-        ${borderColor('active1')};
+        ${textColor2.active1};
+        ${borderColor.active1};
     }
     ${states('disabled')} {
-        ${textColor('disabled1')};
-        ${borderColor('disabled1')};
+        ${textColor2.disabled1};
+        ${borderColor.disabled1};
     }
     ${states('focus')} {
-        box-shadow: 0px 0px 4px 2px ${shadowColor('interaction1')};
+        box-shadow: 0px 0px 4px 2px ${shadowColor.interaction1};
         outline: none;
     }
 `;
 
 const SecondaryButtonWhite = styled(SecondaryButton)`
-    ${textColor('interaction2')};
-    ${borderColor('interaction2')};
+    ${textColor.interaction2};
+    ${borderColor.interaction2};
 
     ${states('hover')} {
-        ${textColor('hover2')};
-        ${borderColor('hover2')};
+        ${textColor.hover2};
+        ${borderColor.hover2};
     }
     ${states('active')} {
-        ${textColor('active2')};
-        ${borderColor('active2')};
+        ${textColor.active2};
+        ${borderColor.active2};
     }
     ${states('disabled')} {
-        ${textColor('disabled2')};
-        ${borderColor('disabled2')};
+        ${textColor.disabled2};
+        ${borderColor.disabled2};
     }
     ${states('focus')} {
-        box-shadow: 0px 0px 4px 2px ${shadowColor('interaction2')};
+        box-shadow: 0px 0px 4px 2px ${shadowColor.interaction2};
     }
 `;
 
 const TertiaryButton = styled(BaseButton)`
-    ${textColor('interaction1')};
+    ${textColor.interaction1};
     background-color: transparent;
     ${states('focus')} {
         outline: none;
@@ -127,7 +128,7 @@ const TertiaryButton = styled(BaseButton)`
 `;
 
 const TertiaryButtonWhite = styled(TertiaryButton)`
-    ${textColor('interaction2')};
+    ${textColor.interaction2};
 `;
 
 export enum VARIANTS {

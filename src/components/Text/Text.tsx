@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import _ from 'lodash';
 
 const BaseText = styled.p`
-    ${textColor('default')}
+    ${textColor.default}
     padding: 0;
     margin: 0;
 `

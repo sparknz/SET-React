@@ -9,12 +9,13 @@
     "reakit": "^1.0.0-beta.0",
     "styled-tools": "^1.7.1"
   },
-  "peerDependency":{
+  "peerDependency": {
     "react": "^16.10.2",
     "styled-components": "^4.4.0",
     "react-dom": "^16.10.2"
   },
   "scripts": {
+    "prepublish": "rm -rf ./dist && yarn run build",
     "build": "webpack --mode=development",
     "test": "jest && yarn styleguidest-visual",
     "start": "styleguidist server",
@@ -24,7 +25,7 @@
     "styleguidest-visual": "styleguidist build && styleguidist-visual test --url \"file://$(pwd)/styleguide/index.html\" --wait 50"
   },
   "name": "@sparknz/set-react",
-  "version": "0.0.18",
+  "version": "0.0.23",
   "main": "/dist/bundle.js",
   "files": [
     "dist"
@@ -52,9 +53,12 @@
     "jest-runner-eslint": "^0.7.3",
     "jest-styled-components": "^6.3.1",
     "prettier": "1.17.0",
+    "react": "^16.10.2",
+    "react-dom": "^16.10.2",
     "react-styleguidist-visual": "^0.8.0",
     "react-test-renderer": "^16.8.6",
     "source-map-loader": "^0.2.4",
+    "styled-components": "^4.4.0",
     "ts-jest": "^24.0.2",
     "ts-node": "^8.0.3",
     "typescript": "^3.4.2",

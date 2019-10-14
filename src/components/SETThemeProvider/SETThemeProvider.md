@@ -32,19 +32,19 @@ class App extends Page {
 
 ``` jsx static
 const MyComponent1 = styled.p`
-    ${textColor('default')} //color: #123456;
+    ${textColor.default} //color: #123456;
 `;
 
 const MyComponent2 = styled.span`
-    ${borderColor('alt1')} //border-color: #123456;
+    ${borderColor.alt1} //border-color: #123456;
 `;
 
 const MyComponent3 = styled.div`
-    ${backgroundColor('error')} //border-bottom: #123456;
+    ${backgroundColor.error} //border-bottom: #123456;
 `;
 
 const MyComponent4 = styled.div`
-    box-shadow: 0px 0px 4px 2px ${shadowColor('interaction1')};
+    box-shadow: 0px 0px 4px 2px ${shadowColor.interaction1};
 `
 ```
 
@@ -56,10 +56,10 @@ import styled from 'styled-components';
 import { textColor, breakpoint, zIndex } from '../helpers/themeHelpers';
 
 export default styled.h1`
-    ${textColor('success')}
+    ${textColor.success}
     ${zIndex('bottomlessPit')}
     ${breakpoint('tablet')}{
-        ${textColor('error')}
+        ${textColor.error}
     }
 `;
 ```
