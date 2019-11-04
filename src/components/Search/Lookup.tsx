@@ -1,7 +1,8 @@
 import React, { useState, KeyboardEvent } from 'react';
 import styled from 'styled-components';
 // import Icon from './FontIcons.tsx';
-import { backgroundColor, textColor, borderColor } from '../SETThemeProvider';
+import { backgroundColor, textColor, borderColor } from '../../helpers/themeHelpers';
+import Box from '../Box';
 
 const states = (states) => {
     if (!Array.isArray(states)) {
@@ -64,7 +65,6 @@ const SearchButton = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    ${backgroundColor.interation.base};
     height: 50px;
     border-top-right-radius: 23px;
     border-bottom-right-radius: 23px;
@@ -88,15 +88,15 @@ const Wrapper = styled.div`
     max-width: 756px;
     border-radius: 25px;
     border: 1px solid;
-    ${borderColor.border.regular};
-    ${backgroundColor.base.white};
+    ${borderColor.default};
+    ${backgroundColor.default};
     @media only screen and (max-width: 639px) {
         max-width: 328px;
         height: 51px;
     }
     ${states(['active', 'hover'])} {
         ${SearchButton} {
-            ${backgroundColor.interation.dark};
+            ${backgroundColor.interation1};
         }
         box-shadow: 0 3px 2px 0 rgba(0, 0, 0, 0.25);
       }
@@ -113,7 +113,7 @@ const SearchField = styled.input`
     width: 100%;
     margin: 0 20px;
     border: none;
-    ${textColor.base.grey[4]};
+    ${textColor.default};
     font-family: 'AvenirNextLTPro-Medium', Helvetica, Arial, sans-serif;
     ${states(['focus'])} {
         outline: none;
@@ -129,7 +129,7 @@ const SearchButtonText = styled.div`
     font-size: 18px;
     padding-right: 8px;
     font-family: 'AvenirNext-Medium', Helvetica, Arial, sans-serif;
-    ${textColor.base.white};
+    ${textColor.default};
     @media only screen and (max-width: 639px) {
         display: none;
       }

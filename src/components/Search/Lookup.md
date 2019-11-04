@@ -1,6 +1,4 @@
 
-## Lookup
-
 ```js
 <h2>Default</h2>
 <Lookup placeholder={'What are you looking for?'} buttonText={'Search'} onRequestSearch={(value) => alert('Search Value: ' + value)}/>
