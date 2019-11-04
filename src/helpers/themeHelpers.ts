@@ -1,9 +1,10 @@
 import pinkGreen from '@sparknz/set-tokens/dist/js/pinkGreen.json';
 import { prop } from 'styled-tools';
-import {IRawTheme, IHelperResponse} from './interface';
+import {IRawTheme, IHelperResponse, IBreakpoints, IZIndex, IFontSize, ISpacing} from './interface';
+
+const template : IRawTheme = pinkGreen;
 
 export const textColor = function():IHelperResponse{
-    const template : IRawTheme = pinkGreen;
     const colorObj = template.color.text;
     const Keys = Object.keys(colorObj);
     const returnObj = Keys.reduce((acc, key) => {
@@ -19,7 +20,6 @@ export const textColor = function():IHelperResponse{
 }();
 
 export const backgroundColor = function():IHelperResponse{
-    const template : IRawTheme = pinkGreen;
     const colorObj = template.color.background;
     const Keys = Object.keys(colorObj);
     const returnObj = Keys.reduce((acc, key) => {
@@ -34,24 +34,31 @@ export const backgroundColor = function():IHelperResponse{
     return returnObj;
 }();
 
-export const borderColor = function(side?: string):IHelperResponse{
-    const template : IRawTheme = pinkGreen;
+const genBorderColor = function(side?: string):IHelperResponse{
     const colorObj = template.color.border;
     const Keys = Object.keys(colorObj);
     const returnObj = Keys.reduce((acc, key) => {
         acc[key] = ({theme} : {theme: any}) : string => {
             const suffix = theme.isForegroundInverted ? 'invert' : 'default';
             const colorHex = prop(`${key}.${suffix}`)(theme.color.border);
-            return `border-color${side ? `-${side}` : ""}: ${colorHex};`;
+            if (side){
+                return `border-${side}-color: ${colorHex};`;
+            }
+            return `border-color: ${colorHex};`;
         }
         return acc;
     }, {})
 
     return returnObj;
-}();
+};
+
+export const borderColor = genBorderColor();
+export const borderTopColor = genBorderColor('top');
+export const borderRightColor = genBorderColor('right');
+export const borderBottomColor = genBorderColor('bottom');
+export const borderLeftColor = genBorderColor('left');
 
 export const shadowColor = function(side?: string):IHelperResponse{
-    const template : IRawTheme = pinkGreen;
     const colorObj = template.color.shadow;
     const Keys = Object.keys(colorObj);
     const returnObj = Keys.reduce((acc, key) => {
@@ -66,26 +73,42 @@ export const shadowColor = function(side?: string):IHelperResponse{
     return returnObj;
 }();
 
-export const baseColor = (path: string) => (props) => {
-    return prop(`${path}`)(props.theme.color.base);
-}
+export const baseColor = function(){
+    return template.color.base;
+}()
 
-export const breakpoint = (path: string) => (props) => {
-    const breakpoint = prop(`${path}`)(props.theme.layout.breakpoint);
-    return `@media screen and (max-width: ${breakpoint}px)`
-}
+export const breakpoint = function(): IBreakpoints{
+    const breakpoints = template.layout.breakpoint;
+    const keys = Object.keys(breakpoints);
+    return keys.reduce((acc, key) => {
+        acc[key] = `@media screen and (max-width: ${breakpoints[key]}px)`
+        return acc;
+    }, {});
+}()
 
-export const zIndex = (path: string) => (props) => {
-    const zIndex = prop(`${path}`)(props.theme.layout.zIndex);
-    return `z-index: ${zIndex};`
-}
+export const zIndex = function(): IZIndex{
+    const zIndex = template.layout.zIndex;
+    const keys = Object.keys(zIndex);
+    return keys.reduce((acc, key) => {
+        acc[key] = `z-index: ${zIndex[key]};`
+        return acc;
+    }, {}) 
+}()
 
-export const fontSize = (path: string) => (props) => {
-    const fontSize = prop(`${path}`)(props.theme.size.font);
-    return `font-size: ${fontSize}`;
-}
+export const fontSize = function(): IFontSize{
+    const fontSize = template.size.font;
+    const keys = Object.keys(fontSize);
+    return keys.reduce((acc, key) => {
+        acc[key] = `z-index: ${fontSize[key]};`
+        return acc;
+    }, {}) 
+}()
 
-export const spacing = (path: string) => (props) => {
-    const spacing = prop(`${path}`)(props.theme.size.spacing);
-    return spacing;
-}
+export const spacing = function(): ISpacing{
+    const spacing = template.size.spacing;
+    const keys = Object.keys(fontSize);
+    return keys.reduce((acc, key) => {
+        acc[key] = `z-index: ${spacing[key]};`
+        return acc;
+    }, {}) 
+}()

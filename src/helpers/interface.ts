@@ -1,25 +1,25 @@
-interface IThemeColorPair {
+export interface IThemeColorPair {
     "default": string,
     "invert": string
 }
 
-interface IBaseColorShades {
+export interface IBaseColorShades {
     [index: string]: string;
 }
 
-interface IBreakpoints {
+export interface IBreakpoints {
     [index: string]: number;
 }
 
-interface IZIndex { 
+export interface IZIndex { 
     [index: string] : number;
 }
 
-interface IFontSize {
+export interface IFontSize {
     [index: string] : string;
 }
 
-interface ISpacing {
+export interface ISpacing {
     [index: string] : string;
 }
 

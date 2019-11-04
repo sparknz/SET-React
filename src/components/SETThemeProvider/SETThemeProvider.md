@@ -57,8 +57,8 @@ import { textColor, breakpoint, zIndex } from '../helpers/themeHelpers';
 
 export default styled.h1`
     ${textColor.success}
-    ${zIndex('bottomlessPit')}
-    ${breakpoint('tablet')}{
+    ${zIndex.bottomlessPit}
+    ${breakpoint.tablet}{
         ${textColor.error}
     }
 `;
@@ -72,8 +72,8 @@ export default styled.h1`
 
 ```jsx static
 const Title = styled.h1`
-    ${fontSize('xs')}
-    margin-bottom: ${spacing('xl')}
+    ${fontSize.xs}
+    margin-bottom: ${spacing.xl}
 `
 ```
 

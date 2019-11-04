@@ -3,7 +3,6 @@ import React from 'react';
 import { Button } from 'reakit';
 import styled from 'styled-components';
 import { backgroundColor, textColor, borderColor, shadowColor } from '../../helpers/themeHelpers';
-import { textColor2 } from '../../helpers/themeHelperObj';
 
 const states = (states) => {
     if (!Array.isArray(states)) {
@@ -51,7 +50,7 @@ const PrimaryButton = styled(BaseButton)`
 `
 
 const PrimaryButtonWhite = styled(PrimaryButton)`
-    ${textColor2.interaction1};
+    ${textColor.interaction1};
     ${backgroundColor.interaction2};
 
     ${states('hover')} {
@@ -81,15 +80,15 @@ const SecondaryButton = styled(BaseButton)`
     ${borderColor.interaction1};
 
     ${states('hover')} {
-        ${textColor2.hover1};
+        ${textColor.hover1};
         ${borderColor.hover1};
     }
     ${states('active')} {
-        ${textColor2.active1};
+        ${textColor.active1};
         ${borderColor.active1};
     }
     ${states('disabled')} {
-        ${textColor2.disabled1};
+        ${textColor.disabled1};
         ${borderColor.disabled1};
     }
     ${states('focus')} {
