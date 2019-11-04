@@ -99,7 +99,7 @@ export const fontSize = function(): IFontSize{
     const fontSize = template.size.font;
     const keys = Object.keys(fontSize);
     return keys.reduce((acc, key) => {
-        acc[key] = `z-index: ${fontSize[key]};`
+        acc[key] = `font-size: ${fontSize[key]};`
         return acc;
     }, {}) 
 }()
@@ -108,7 +108,7 @@ export const spacing = function(): ISpacing{
     const spacing = template.size.spacing;
     const keys = Object.keys(fontSize);
     return keys.reduce((acc, key) => {
-        acc[key] = `z-index: ${spacing[key]};`
+        acc[key] = spacing[key];
         return acc;
     }, {}) 
 }()
