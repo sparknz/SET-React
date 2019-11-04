@@ -2,115 +2,162 @@
 import React from 'react';
 import { Button } from 'reakit';
 import styled from 'styled-components';
-import  { backgroundColor, textColor, borderColor } from '../SETThemeProvider';
-
+import { backgroundColor, textColor, borderColor, shadowColor } from '../../helpers/themeHelpers';
 
 const states = (states) => {
-  if (!Array.isArray(states)) {
-    states = [states];
-  }
-  return (props) => {
-      return states.map((state) => props[state] ? '&&' : `&:${state}`).join(',');
-  }
+    if (!Array.isArray(states)) {
+        states = [states];
+    }
+    return (props) => {
+        return states.map((state) => props[state] ? '&&' : `&:${state}`).join(',');
+    }
 }
 
+const BaseButton = styled(Button)`
+    border: none;
+    padding: 10px 20px;
+    height: 40px;
+    font-size: 14px;
+    font-family: 'AvenirNextLTPro-Medium', Helvetica, Arial, sans-serif;
+    text-decoration: none;
+`
 
-const StyledButton = styled(Button)`
-  border-width: 1px;
-  border-radius: 0;
-  padding: 10px 20px;
-  height: 40px;
-  font-size: 14px;
-  font-family: 'AvenirNextLTPro-Medium', Helvetica, Arial, sans-serif;
-  text-decoration: none;
-  ${backgroundColor.interation.base};
-  ${textColor.base.white};
-  ${states(['hover', 'active'])} {
+const PrimaryButton = styled(BaseButton)`
+
+  ${backgroundColor.interaction1};
+  ${textColor.interaction2};
+
+  ${states('hover')} {
     outline: none;
     text-decoration: none;
     box-shadow: none;
-    ${backgroundColor.interation.dark};
+    ${backgroundColor.hover1};
+  }
+
+  ${states('active')} {
+    ${backgroundColor.active1};
   }
 
   ${states('focus')} {
-    box-shadow: 0px 0px 4px 2px #007CBD;
+    box-shadow: 0px 0px 4px 2px ${shadowColor.interaction1};
     outline: none;
   }
 
-  &[disabled]:after {
-    background: none;
+  ${states('disabled')} {
+    outline: none;
+    ${backgroundColor.disabled1};
   }
 `
 
+const PrimaryButtonWhite = styled(PrimaryButton)`
+    ${textColor.interaction1};
+    ${backgroundColor.interaction2};
 
-const SecondaryButton = styled(StyledButton)`
-  ${textColor.interation.base};
-  ${backgroundColor.base.white};
-  border: 1px solid;
-  ${borderColor.interation.base};
+    ${states('hover')} {
+        ${textColor.hover1};
+        ${backgroundColor.hover2};
+    }
+    ${states('active')} {
+        ${textColor.active1};
+        ${backgroundColor.active2};
+    }
+    ${states('disabled')} {
+        ${textColor.disabled1};
+        ${backgroundColor.disabled2};
+    }
+    ${states('focus')} {
+        box-shadow: 0px 0px 4px 2px ${shadowColor.interaction2};
+        outline: none;
+    }
+`
 
-  ${states(['hover', 'active'])} {
-    ${textColor.interation.dark};
-    ${backgroundColor.base.white};
-    ${borderColor.interation.dark};
-  }
+const SecondaryButton = styled(BaseButton)`
+    border-width: 2px;
+    border-radius: 2px;
+    ${textColor.interaction1};
+    background-color: transparent;
+    border: 1px solid;
+    ${borderColor.interaction1};
+
+    ${states('hover')} {
+        ${textColor.hover1};
+        ${borderColor.hover1};
+    }
+    ${states('active')} {
+        ${textColor.active1};
+        ${borderColor.active1};
+    }
+    ${states('disabled')} {
+        ${textColor.disabled1};
+        ${borderColor.disabled1};
+    }
+    ${states('focus')} {
+        box-shadow: 0px 0px 4px 2px ${shadowColor.interaction1};
+        outline: none;
+    }
 `;
 
+const SecondaryButtonWhite = styled(SecondaryButton)`
+    ${textColor.interaction2};
+    ${borderColor.interaction2};
 
-const blue = '0096e6';
-
-const TertiaryButton = styled(StyledButton)`
-  ${textColor.interation.base};
-  ${backgroundColor.base.white};
-
-
-
-  ${states(['hover', 'active'])} {
-    ${textColor.interation.dark};
-    ${backgroundColor.base.white};
-    ${borderColor.interation.dark};
-
-    &::after {
-      transform: translateX(2px);
+    ${states('hover')} {
+        ${textColor.hover2};
+        ${borderColor.hover2};
     }
-  }
-
-
-  border: none;
-
-
-  &::after {
-    vertical-align: middle;
-    margin-left: 2px;
-    transition: transform 1s;
-    transform: translateX(0px);
-    content: '';
-    background-image: url("data:image/svg+xml,%3Csvg width='32' height='32' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cdefs%3E%3Cpath id='a' d='M9.429 32l-2.922-2.922L19.584 16 6.507 2.922 9.429 0l16 16z'/%3E%3C/defs%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cmask id='b' fill='%23fff'%3E%3Cuse xlink:href='%23a'/%3E%3C/mask%3E%3Cuse fill='%23000' fill-rule='nonzero' xlink:href='%23a'/%3E%3Cg mask='url(%23b)' fill='%23${blue}'%3E%3Cpath d='M0 0h32v32H0z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-    height: 14px;
-    width: 14px;
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: left;
-    z-index: 33;
-    display: inline-block;
-  }
-
+    ${states('active')} {
+        ${textColor.active2};
+        ${borderColor.active2};
+    }
+    ${states('disabled')} {
+        ${textColor.disabled2};
+        ${borderColor.disabled2};
+    }
+    ${states('focus')} {
+        box-shadow: 0px 0px 4px 2px ${shadowColor.interaction2};
+    }
 `;
 
-
-
-export default ({ variant, ...props }): JSX.Element => {
-    if(variant === 'secondary') {
-      return <SecondaryButton {...props} />;
+const TertiaryButton = styled(BaseButton)`
+    ${textColor.interaction1};
+    background-color: transparent;
+    ${states('focus')} {
+        outline: none;
     }
+`;
 
-  if (variant === 'tertiary') {
-      return <TertiaryButton {...props} />;
-    }
+const TertiaryButtonWhite = styled(TertiaryButton)`
+    ${textColor.interaction2};
+`;
 
-    if(variant && variant !== 'primary') {
-      throw new Error('Variant doesnt exist for button');
+export enum VARIANTS {
+    PRIMARY_BLUE = "PRIMARY_BLUE",
+    PRIMARY_WHITE = "PRIMARY_WHITE",
+    SECONDARY_BLUE = "SECONDARY_BLUE",
+    SECONDARY_WHITE = "SECONDARY_WHITE",
+    TERTIARY_BLUE = "TERTIARY_BLUE",
+    TERTIARY_WHITE = "TERTIARY_WHITE"
+}
+
+export default ({ variant, ...props }: { variant?: VARIANTS }): JSX.Element => {
+
+    if (variant && !Object.values(VARIANTS).includes(variant)) {
+        throw new Error(`Variant ${variant} doesnt exist for button`);
     }
-    return <StyledButton {...props} />;
+    switch (variant) {
+        case VARIANTS.PRIMARY_BLUE:
+            return <PrimaryButton {...props} />;
+        case VARIANTS.PRIMARY_WHITE:
+            return <PrimaryButtonWhite {...props} />;
+        case VARIANTS.SECONDARY_BLUE:
+            return <SecondaryButton {...props} />;
+        case VARIANTS.SECONDARY_WHITE:
+                return <SecondaryButtonWhite {...props} />;
+        case VARIANTS.TERTIARY_BLUE:
+            return <TertiaryButton {...props} />;
+        case VARIANTS.TERTIARY_WHITE:
+                return <TertiaryButtonWhite {...props} />;
+        default:
+            return <PrimaryButton {...props} />;
+    }
 };
-

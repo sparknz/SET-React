@@ -3,7 +3,11 @@ module.exports = {
     entry: "./src/index.tsx",
     output: {
         filename: "bundle.js",
-        path: __dirname + "/dist"
+        path: __dirname + "/dist",
+        library: '@sparknz/set-react',
+        libraryTarget: 'umd',
+        publicPath: "/dist/bundle",
+        umdNamedDefine: true
     },
 
     // Enable sourcemaps for debugging webpack"s output.
@@ -11,7 +15,7 @@ module.exports = {
 
     resolve: {
         // Add ".ts" and ".tsx" as resolvable extensions.
-        extensions: [".ts", ".tsx", ".js", ".json"]
+        extensions: [".ts", ".tsx", ".js", ".jsx", ".json"]
     },
     module: {
         rules: [
@@ -29,5 +33,23 @@ module.exports = {
             },
         ]
     },
-
+    externals: {
+        "styled-components": {
+          commonjs: 'styled-components',
+          commonjs2: 'styled-components',
+          amd: 'styled-components'
+        },
+        "react": {
+          commonjs: 'react',
+          commonjs2: 'react',
+          amd: 'React',
+          root: 'React'
+        },
+        "react-dom": {
+          commonjs: 'react-dom',
+          commonjs2: 'react-dom',
+          amd: 'ReactDom',
+          root: "ReactDom"
+        }
+    }
 };

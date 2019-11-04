@@ -1,64 +1,80 @@
-# SETThemeProvider 
-give you access to all of sparks colors.
-SETThemeProvider is used at the top level of your application and also lets you choose the color pair you need through 
-the theme param.
+### Usage
 
-the color pairs are:
-   - 'purple-orange'
-   - 'pink-green'
-   - 'green-orange'
-   - 'pink-purple'
-   - 'purple-green'
-   - 'orange-pink'
-  
-and their inverse
+The `SETThemeProvider` provide styled-components in your application with the color/layout/sizing tokens for the specific chosen theme.
 
-   - 'purple-orange.inverse'
-   - 'pink-green.inverse',
-   - 'green-orange.inverse'
-   - 'pink-purple'.inverse
-   - 'purple-green.inverse'
-   - 'orange-pink.inverse'
+You usually only need to use the `SETThemeProvider` once, and that is at the root element of your project:
 
+```jsx static
+class App extends Page {
+    render() {
+        return (
+            <SparkTheme>
+                {/*Your app goes here*/}
+            </SparkTheme>
+        );
+    }
+}
+```
 
-there are helpful getters, these are fully typescripted so you can use autocomplete.
+### Helper functions
 
-click `VIEW CODE` bellow to see an example.
-
+#### Color helpers
 - backgroundColor
 - textColor
 - borderColor
-- borderColorLeft
-- borderColorRight
-- borderColorTop
-- borderColorBottom
+- borderTopColor
+- borderRightColor
+- borderBottomColor
+- borderLeftColor
+- shadowColor
 
-```js
+> Note: you should never need to use the backgroundColor helper file directly, as any div with a background should be created using the Box component.
 
-import styled from 'styled-components';
-import SETThemeProvider, {
-    backgroundColor,
-    textColor,
-    borderColor,
-    borderColorLeft,
-    borderColorRight,
-    borderColorTop,
-    borderColorBottom
-} from "./index";
-
-const TestStyle = styled.div`
-    ${backgroundColor.base.white};
-    ${textColor.base.primary.base};
-    ${borderColor.base.primary.light};
-    ${borderColorLeft.base.secondary.light};
-    ${borderColorRight.base.secondary.base};
-    ${borderColorTop.base.neutral["000"]};
-    ${borderColorBottom.base.tertiary};
-    border-width: 40px;
-    border-style: solid;
+``` jsx static
+const MyComponent1 = styled.p`
+    ${textColor.default} //color: #123456;
 `;
 
- <SETThemeProvider theme="orange-pink">
-        <TestStyle>Hello World.</TestStyle>
-</SETThemeProvider>
+const MyComponent2 = styled.span`
+    ${borderColor.alt1} //border-color: #123456;
+`;
+
+const MyComponent3 = styled.div`
+    ${backgroundColor.error} //border-bottom: #123456;
+`;
+
+const MyComponent4 = styled.div`
+    box-shadow: 0px 0px 4px 2px ${shadowColor.interaction1};
+`
 ```
+
+#### Layout helpers
+- breakpoint
+- zIndex
+```jsx static
+import styled from 'styled-components';
+import { textColor, breakpoint, zIndex } from '../helpers/themeHelpers';
+
+export default styled.h1`
+    ${textColor.success}
+    ${zIndex.bottomlessPit}
+    ${breakpoint.tablet}{
+        ${textColor.error}
+    }
+`;
+```
+
+#### Sizing helpers
+- fontSize
+- spacing
+
+> Note: Normally you would use the Text components (which uses fontSize helper internally) instead of defining your own text component.
+
+```jsx static
+const Title = styled.h1`
+    ${fontSize.xs}
+    margin-bottom: ${spacing.xl}
+`
+```
+
+Refer to [Spark Tokens](https://sparknz.github.io/SET-Docs) for all the avaliable colors, layout, and spacing tokens 

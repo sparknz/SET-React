@@ -1,1 +1,1 @@
-export { default } from '../components/SETThemeProvider'; 
+export { default } from '../components/SETThemeProvider' 
