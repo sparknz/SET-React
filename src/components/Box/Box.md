@@ -20,17 +20,7 @@ Use the Box component to create a div with a background color.
 </div>
 ```
 
-The 10 types of Boxes are:
-- default
-- alt1
-- alt2
-- error
-- info
-- success
-- interaction
-- hover
-- disabled
-- active
+The boxType are the name of the individual background colors as defined in SETTokens.
 
 The color for each type will change depending on the theme defined through `SETThemeProvider`
 

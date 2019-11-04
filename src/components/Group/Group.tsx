@@ -20,14 +20,14 @@ flex-wrap: ${props => (props.nowrap ? 'nowrap' : 'wrap')};
 align-items: center;
 
 > * {
-    margin-right: ${props => spacing(props.desktopSpacing || 'default')};
+    margin-right: ${props => spacing[props.desktopSpacing || 'default']};
 
     &:last-child {
         margin-right: 0;
     }
 
-    ${breakpoint('tablet')} {
-        margin-right: ${props => spacing(props.tabletSpacing || 'small')};
+    ${breakpoint.tablet} {
+        margin-right: ${props => spacing[props.tabletSpacing || 'small']};
     }
 }
 `;
@@ -39,14 +39,14 @@ flex-wrap: ${props => (props.nowrap ? 'nowrap' : 'wrap')};
 align-items: center;
 
 > * {
-    margin-bottom: ${props => spacing(props.desktopSpacing || 'default')};
+    margin-bottom: ${props => spacing[props.desktopSpacing || 'default']};
 
     &:last-child {
         margin-bottom: 0;
     }
 
-    ${breakpoint('tablet')} {
-        margin-bottom: ${props => spacing(props.tabletSpacing || 'small')};
+    ${breakpoint.tablet} {
+        margin-bottom: ${props => spacing[props.tabletSpacing || 'small']};
     }
 }
 `;

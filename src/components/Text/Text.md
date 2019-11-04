@@ -23,9 +23,9 @@ const BaseText = styled.p`
 `
 
 export const Xs = styled(BaseText)`
-    ${fontSize('xs')}
-    ${breakpoint('tablet')}{
-        ${fontSize('xxs')}
+    ${fontSize.xs}
+    ${breakpoint.tablet}{
+        ${fontSize.xxs}
     }
 `
 ```

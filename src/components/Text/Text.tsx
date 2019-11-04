@@ -22,9 +22,9 @@ interface ITextComponents{
 const reducer = (acc: ITextComponents, val: string, index: number, srcArray: string[]) => ({
     ...acc,
     [_.capitalize(val)]: styled(BaseText)`
-        ${fontSize(val)}
-        ${breakpoint('tablet')}{
-            ${fontSize(srcArray[index-1])}
+        ${fontSize[val]}
+        ${breakpoint.tablet}{
+            ${fontSize[srcArray[index-1]]}
         }
     `
 })
