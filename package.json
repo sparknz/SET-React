@@ -25,7 +25,7 @@
     "styleguidest-visual": "styleguidist build && styleguidist-visual test --url \"file://$(pwd)/styleguide/index.html\" --wait 50"
   },
   "name": "@sparknz/set-react",
-  "version": "0.0.24",
+  "version": "0.0.25",
   "main": "/dist/bundle.js",
   "files": [
     "dist"
