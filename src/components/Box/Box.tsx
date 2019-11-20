@@ -9,7 +9,6 @@ interface IWrapper extends React.HTMLProps<HTMLDivElement> {
 
 const Wrapper = styled.div<IWrapper>`
   ${props => backgroundColor[props.boxType]};
-  color: blue;
 `
 
 export default function Box({ boxType, children, ...props }: {boxType: string, children:React.ReactChildren}) {
