@@ -5,6 +5,7 @@ import _ from "lodash";
 
 const BaseText = styled.p`
     ${textColor.default}
+    font-weight: normal;
     padding: 0;
     margin: 0;
 `;

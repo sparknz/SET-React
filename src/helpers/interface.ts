@@ -1,57 +1,25 @@
-export interface IThemeColorPair {
-    "default": string,
-    "invert": string
-}
+import * as enums from "@sparknz/set-tokens/dist/interface/default";
 
-export interface IBaseColorShades {
-    [index: string]: string;
-}
+type helperFunc = ({ theme }: { theme: string }) => string;
 
-export interface IBreakpoints {
-    [index: string]: number;
-}
+export type IBackgrounColor = { [index in enums.background]: helperFunc };
 
-export interface IZIndex { 
-    [index: string] : number;
-}
+export type ITextColor = { [index in enums.text]: helperFunc };
 
-export interface IFontSize {
-    [index: string] : string;
-}
+export type IBorderColor = { [index in enums.border]: helperFunc };
 
-export interface ISpacing {
-    [index: string] : string;
-}
+export type IShadowColor = { [index in enums.shadow]: helperFunc };
 
-export interface IHelperResponse {
-    [index: string]: ({theme}: {theme: string}) => string
-}
+export type IBreakpoint = { [index in enums.breakpoint]: number };
 
-export interface IRawTheme {
-    "color": {
-        "background": {
-            [index: string]: IThemeColorPair
-        },
-        "border": {
-            [index: string]: IThemeColorPair
-        },
-        "base": {
-            [index: string]: IBaseColorShades
-        },
-        "shadow": {
-            [index: string]: IThemeColorPair
-        },
-        "text": {
-            interaction2: IThemeColorPair;
-            [index: string]: IThemeColorPair;
-        }
-    }
-    "layout": {
-      "breakpoint": IBreakpoints;
-      "zIndex": IZIndex;
-    },
-    "size": {
-      "font": IFontSize;
-      "spacing": ISpacing;
-    }
-}
+export type IZIndex = { [index in enums.zIndex]: string };
+
+export type IFontSize = { [index in enums.font]: string };
+
+export type ISpacing = { [index in enums.spacing]: string };
+
+export type IDuration = { [index in enums.duration]: string };
+
+export type ILineHeight = { [index in enums.line_height]: string };
+
+export type IRadius = { [index in enums.radius]: string };
