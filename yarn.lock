@@ -888,10 +888,10 @@
   resolved "https://registry.yarnpkg.com/@nodelib/fs.stat/-/fs.stat-1.1.3.tgz#2b5a3ab3f918cca48a8c754c08168e3f03eba61b"
   integrity sha512-shAmDyaQC4H92APFoIaVDHCx5bStIocgvbwQyxPRrbUY20V1EYTbSDchWbuwlMG3V17cprZhA6+78JfB+3DTPw==
 
-"@sparknz/set-tokens@^0.0.33":
-  version "0.0.33"
-  resolved "https://registry.yarnpkg.com/@sparknz/set-tokens/-/set-tokens-0.0.33.tgz#6e918cd88e6522467d5ab59d3f9206b0bf1d8b25"
-  integrity sha512-99jNirJMne6RAVp1i9NM28QEgUSA9/ak9UmaDKgKbPdlroN/haWRBg7+HcPkkT2fWTBJ5qTLLpnDpqgRFby/jA==
+"@sparknz/set-tokens@^0.0.34":
+  version "0.0.34"
+  resolved "https://registry.yarnpkg.com/@sparknz/set-tokens/-/set-tokens-0.0.34.tgz#5611035d0d65c2a9adb2d98a486d63d17521e9b1"
+  integrity sha512-DDDhP/TUzdt4H2xGnytdDYzH/C35WiaVCSEBp92CxVg+tknMf6tdnekvvjX8wWssq8Op4POjYPO358ko4fBmYQ==
 
 "@types/babel__core@^7.1.0":
   version "7.1.3"
