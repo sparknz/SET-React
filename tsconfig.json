@@ -1,10 +1,13 @@
 {
     "compilerOptions": {
         "allowSyntheticDefaultImports": true,
+        "declaration": true,
         "jsx": "react",
         "esModuleInterop": true,
         "types": ["react", "jest", "node"],
         "lib": ["es6", "dom"],
-        "resolveJsonModule": true
+        "resolveJsonModule": true,
+        "outDir": "./dist",
+        "moduleResolution": "node"
     }
 }
