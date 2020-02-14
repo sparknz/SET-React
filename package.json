@@ -1,6 +1,7 @@
 {
     "dependencies": {
         "@sparknz/set-tokens": "^0.0.34",
+        "@types/color": "^3.0.1",
         "color": "^3.1.2",
         "deepmerge": "^3.2.0",
         "gh-pages": "^2.1.1",
@@ -25,8 +26,8 @@
         "styleguidest-visual": "styleguidist build && styleguidist-visual test --url \"file://$(pwd)/styleguide/index.html\" --wait 50"
     },
     "name": "@sparknz/set-react",
-    "version": "0.0.27",
-    "main": "./src/index.ts",
+    "version": "0.0.28",
+    "main": "/dist/bundle.js",
     "types": "./src/index.d.ts",
     "author": "Mike Tamis <mike.tamis@spark.co.nz>, David Xu <david.xu@spark.co.nz>",
     "license": " ",
